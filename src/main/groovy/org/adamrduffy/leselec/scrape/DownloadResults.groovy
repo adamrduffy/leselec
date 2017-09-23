@@ -70,10 +70,6 @@ class DownloadResults {
         new File(filePath).write(new JsonBuilder(content).toPrettyString())
     }
 
-    static Object load(String filePath) {
-        return new JsonSlurper().parseText(new File(filePath).text)
-    }
-
     static void main(String[] args) {
         def districts = extractDistrictUrls()
         districts = districts.findAll{ StringUtils.isNotBlank(it.name) && !StringUtils.equalsIgnoreCase(it.name, "Home")}

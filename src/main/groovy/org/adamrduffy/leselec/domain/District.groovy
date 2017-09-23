@@ -8,4 +8,5 @@ class District {
     String url
     int resultCount
     List<Result> results
+    List<Constituency> constituencies
 }
