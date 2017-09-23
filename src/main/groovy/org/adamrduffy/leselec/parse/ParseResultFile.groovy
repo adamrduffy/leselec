@@ -22,13 +22,15 @@ class ParseResultFile {
     static Constituency parseResultFile(File file) {
         PDFTableExtractor extractor = new PDFTableExtractor()
         def tables = extractor.setSource(file).extract()
-        String name
+        String code = null
+        String name = null
         List<Candidate> candidates = new ArrayList<>()
         tables.each { table ->
             table.rows.each { row ->
-                def match = (row.toString().toUpperCase() =~ /CONSTITUENCY:(.*)/)
+                def match = (row.toString().toUpperCase() =~ /CONSTITUENCY:(.*?)NO.(.*)/)
                 if (match.size() > 0) {
-                    name = StringUtils.trim(match[0][1])
+                    code = StringUtils.trim(match[0][2] as String)
+                    name = StringUtils.trim(match[0][1] as String)
                 }
                 match = (row.toString() =~ /(\d+)(.*?)([A-Z]{2,}).*?(\d+);([\d]*\.?[\d]+)%/)
                 if (match.size() > 0) {
@@ -44,7 +46,7 @@ class ParseResultFile {
                 }
             }
         }
-        return new Constituency(name: name, candidates: candidates)
+        return new Constituency(code: code, name: name, candidates: candidates)
     }
 
     static Object load(String filePath) {

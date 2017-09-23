@@ -1,6 +1,7 @@
 package org.adamrduffy.leselec
 
 import org.adamrduffy.leselec.domain.Candidate
+import org.adamrduffy.leselec.domain.Constituency
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 import org.junit.Test
@@ -9,9 +10,9 @@ class ParseRowTest {
     @Test
     void parseConstituency() {
         def row = "Constituency:BUTHA-BUTHE No.05".toUpperCase()
-        def match = (row =~ /CONSTITUENCY:(.*)/)
+        def match = (row =~ /CONSTITUENCY:(.*?)NO.(.*)/)
         if (match.size() > 0) {
-            def constituency = StringUtils.trim(match[0][1])
+            Constituency constituency = new Constituency(code: StringUtils.trim(match[0][2]), name:  StringUtils.trim(match[0][1]))
             println constituency
         }
     }
