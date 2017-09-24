@@ -1,10 +1,9 @@
 package org.adamrduffy.leselec.process
 
-import groovy.json.JsonBuilder
-import groovy.json.JsonSlurper
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.domain.Seats
+import org.adamrduffy.leselec.json.JsonFile
 
 class ProcessResults {
     static Seats calculateSeats(List<Party> parties) {
@@ -33,17 +32,9 @@ class ProcessResults {
         return parties
     }
 
-    static Object load(String filePath) {
-        return new JsonSlurper().parseText(new File(filePath).text)
-    }
-
-    static save(Object content, String filePath) {
-        new File(filePath).write(new JsonBuilder(content).toPrettyString())
-    }
-
     static void main(String[] args) {
-        def results = load("results.json")
+        def results = JsonFile.load("results.json")
         def parties = findWinners(results as List<District>)
-        save(calculateSeats(new ArrayList<Party>(parties.values())), "seats.json")
+        JsonFile.save(calculateSeats(new ArrayList<Party>(parties.values())), "seats.json")
     }
 }
