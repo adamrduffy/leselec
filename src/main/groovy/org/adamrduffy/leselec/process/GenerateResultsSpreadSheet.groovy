@@ -5,7 +5,7 @@ import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 
 class GenerateResultsSpreadSheet {
-    static void generateSpreadSheet(List<District> districts) {
+    static String generateSpreadSheet(List<District> districts) {
         List<Constituency> constituencies = new ArrayList<>()
         Set<String> partyCodes = new TreeSet<>()
         districts.each { district ->
@@ -24,30 +24,34 @@ class GenerateResultsSpreadSheet {
             }
         })
 
+        StringBuffer stringBuffer = new StringBuffer();
         partyCodes.each { partyCode ->
-            print "," + partyCode
+            stringBuffer << "," + partyCode
         }
-        println ""
+        stringBuffer <<  "\n"
         constituencies.each { constituency ->
             Map<String,Integer> votes = new HashMap<>()
             constituency.candidates.each { candidate ->
                 votes.put(candidate.party, candidate.votes)
             }
-            print constituency.code
+            stringBuffer <<  constituency.code
             partyCodes.each { partyCode ->
-                print ","
+                stringBuffer <<  ","
                 if (votes.containsKey(partyCode)) {
-                    print votes.get(partyCode)
+                    stringBuffer <<  votes.get(partyCode)
                 } else {
-                    print ""
+                    stringBuffer <<  ""
                 }
             }
-            println ""
+            stringBuffer <<  "\n"
         }
+
+        return stringBuffer.toString()
     }
 
     static void main(String[] args) {
         def results = JsonFile.load("results.json")
-        generateSpreadSheet(results as List<District>)
+        def csv = new File("results.csv")
+        csv.write generateSpreadSheet(results as List<District>)
     }
 }
