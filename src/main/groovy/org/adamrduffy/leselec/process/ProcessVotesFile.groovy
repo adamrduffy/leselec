@@ -6,20 +6,27 @@ import org.adamrduffy.leselec.domain.Seats
 import org.adamrduffy.leselec.json.JsonFile
 
 class ProcessVotesFile {
-    static Seats calculateSeats(List<Party> parties) {
-        float nationalQuota = (parties.sum { it.votes }) / 120
-        parties.sort(new Comparator<Party>() {
-            @Override
-            int compare(Party o1, Party o2) {
-                return o1.code <=> o2.code
-            }
-        })
+    static final TOTAL_SEATS = 120
+
+    static Seats calculateSeats(List<Party> parties, int byelections) {
+        int nationalTotalVotes = parties.sum { it.votes } as int
+        float nationalQuota = nationalTotalVotes / TOTAL_SEATS
+        println "$nationalTotalVotes $nationalQuota"
+        parties.sort(new PartyCodeComparator())
         parties.each { party ->
             party.partyQuota = party.votes / nationalQuota
-            println "$party.code Seats: $party.seats + $party.prSeatsRoundDown"
+            party.voteShare = (party.votes / nationalTotalVotes) * 100
+            println "$party.code Seats: $party.seats + $party.prSeatsRoundDown ($party.votes $party.voteShare %)"
         }
-        int seatsAllocated = parties.sum { it.getTotalSeats() } as int
+        int seatsAllocated = byelections + parties.sum { it.getTotalSeats() } as int
         println "Total Seats Allocated: $seatsAllocated"
+        int remaining = TOTAL_SEATS - seatsAllocated
+        println "Allocating Remaining $remaining on Highest Remainder"
+        parties.sort(new PartyPrRemainderComparator())
+        parties.take(remaining).each { party ->
+            println "$party.code PR Remainder $party.voteShareRemainder"
+            party.remainderPrSeats += 1
+        }
         return new Seats(parties: parties, nationalQuota: nationalQuota as float)
     }
 
@@ -41,9 +48,28 @@ class ProcessVotesFile {
         return parties
     }
 
+    static int countByElections(List<District> districts) {
+        return districts.constituencies.flatten().sum { it.byelection ? 1 : 0 }
+    }
+
+    static class PartyCodeComparator implements Comparator<Party> {
+        @Override
+        int compare(Party o1, Party o2) {
+            return o1.code <=> o2.code
+        }
+    }
+
+    static class PartyPrRemainderComparator implements Comparator<Party> {
+        @Override
+        int compare(Party o1, Party o2) {
+            return o2.voteShareRemainder <=> o1.voteShareRemainder
+        }
+    }
+
     static void main(String[] args) {
         def results = JsonFile.load("votes.json")
         def parties = findWinners(results as List<District>)
-        JsonFile.save(calculateSeats(new ArrayList<Party>(parties.values())), "seats.json")
+        int byelections = countByElections(results as List<District>)
+        JsonFile.save(calculateSeats(new ArrayList<Party>(parties.values()), byelections), "seats.json")
     }
 }

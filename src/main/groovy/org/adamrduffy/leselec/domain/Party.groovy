@@ -8,7 +8,9 @@ class Party {
     int votes
     List<Candidate> candidates = new ArrayList<>()
     List<Candidate> elected = new ArrayList<>()
+    float voteShare
     float partyQuota
+    int remainderPrSeats
 
     int getSeats() {
         return elected.size()
@@ -19,14 +21,18 @@ class Party {
     }
 
     int getPrSeatsRoundDown() {
-        return Math.floor(Math.max(0, partyQuota - getSeats())) as int
+        return Math.floor(getPrSeats()) as int
+    }
+
+    float getVoteShareRemainder() {
+        return voteShare - Math.floor(voteShare)
     }
 
     int getTotalSeats() {
-        return Math.max(getSeats(), (int) Math.floor(getPrSeats()))
+        return getSeats() + getPrSeatsRoundDown()
     }
 
     int getVotes() {
-        return candidates.sum { it.votes }
+        return candidates.sum { it.votes } as int
     }
 }
