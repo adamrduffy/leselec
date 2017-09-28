@@ -18,13 +18,13 @@ class ProcessVotesFile {
             party.voteShare = (party.votes / nationalTotalVotes) * 100
             println "$party.code Seats: $party.seats + $party.prSeatsRoundDown ($party.votes $party.partyQuota % $party.voteShare %)"
         }
-        int seatsAllocated = byelections + parties.sum { it.getTotalSeats() } as int
+        int seatsAllocated = parties.sum { it.getTotalSeats() } as int
         println "Total Seats Allocated: $seatsAllocated"
-        int remaining = TOTAL_SEATS - seatsAllocated
+        int remaining = TOTAL_SEATS - seatsAllocated - byelections
         println "Allocating Remaining $remaining on Highest Remainder"
         parties.sort(new PartyPrRemainderComparator())
         parties.take(remaining).each { party ->
-            println "$party.code PR Remainder $party.voteShareRemainder"
+            println "$party.code PR Remainder $party.partyQuotaRemainder"
             party.remainderPrSeats += 1
         }
         parties.sort(new PartySeatComparator())
@@ -66,7 +66,7 @@ class ProcessVotesFile {
     static class PartyPrRemainderComparator implements Comparator<Party> {
         @Override
         int compare(Party o1, Party o2) {
-            return o2.voteShareRemainder <=> o1.voteShareRemainder
+            return o2.partyQuotaRemainder <=> o1.partyQuotaRemainder
         }
     }
 

@@ -24,6 +24,10 @@ class Party {
         return Math.floor(getPrSeats()) as int
     }
 
+    float getPartyQuotaRemainder() {
+        return partyQuota - Math.floor(partyQuota)
+    }
+
     float getVoteShareRemainder() {
         return voteShare - Math.floor(voteShare)
     }

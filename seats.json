@@ -338,8 +338,9 @@
                 }
             ],
             "prSeatsRoundDown": 0,
-            "remainderPrSeats": 1,
+            "remainderPrSeats": 0,
             "prSeats": 0.4139099,
+            "partyQuotaRemainder": 0.4139099,
             "code": "ABC",
             "candidates": [
                 {
@@ -903,7 +904,7 @@
                     "name": "Sello Mooki"
                 }
             ],
-            "totalSeats": 48,
+            "totalSeats": 47,
             "votes": 235729
         },
         {
@@ -1096,8 +1097,9 @@
                 }
             ],
             "prSeatsRoundDown": 4,
-            "remainderPrSeats": 1,
+            "remainderPrSeats": 0,
             "prSeats": 4.2052,
+            "partyQuotaRemainder": 0.2052002,
             "code": "DC",
             "candidates": [
                 {
@@ -1479,7 +1481,7 @@
                     "name": "Makhakhe Bataung"
                 }
             ],
-            "totalSeats": 31,
+            "totalSeats": 30,
             "votes": 150172
         },
         {
@@ -1499,6 +1501,7 @@
             "prSeatsRoundDown": 9,
             "remainderPrSeats": 1,
             "prSeats": 9.469603,
+            "partyQuotaRemainder": 0.46960258,
             "code": "LCD",
             "candidates": [
                 {
@@ -1697,6 +1700,7 @@
             "prSeatsRoundDown": 7,
             "remainderPrSeats": 1,
             "prSeats": 7.5857496,
+            "partyQuotaRemainder": 0.5857496,
             "code": "AD",
             "candidates": [
                 {
@@ -2278,8 +2282,9 @@
                 }
             ],
             "prSeatsRoundDown": 4,
-            "remainderPrSeats": 0,
+            "remainderPrSeats": 1,
             "prSeats": 4.9174614,
+            "partyQuotaRemainder": 0.9174614,
             "code": "MEC",
             "candidates": [
                 {
@@ -2843,7 +2848,7 @@
                     "name": "Mothoalo Teboho Eric"
                 }
             ],
-            "totalSeats": 5,
+            "totalSeats": 6,
             "votes": 29420
         },
         {
@@ -2855,8 +2860,9 @@
                 
             ],
             "prSeatsRoundDown": 4,
-            "remainderPrSeats": 0,
+            "remainderPrSeats": 1,
             "prSeats": 4.734975,
+            "partyQuotaRemainder": 0.73497486,
             "code": "BNP",
             "candidates": [
                 {
@@ -3420,7 +3426,7 @@
                     "name": "Lekobane Lehlomela Nathanael"
                 }
             ],
-            "totalSeats": 4,
+            "totalSeats": 5,
             "votes": 23541
         },
         {
@@ -3438,8 +3444,9 @@
                 }
             ],
             "prSeatsRoundDown": 1,
-            "remainderPrSeats": 0,
+            "remainderPrSeats": 1,
             "prSeats": 1.6550133,
+            "partyQuotaRemainder": 0.6550133,
             "code": "PFD",
             "candidates": [
                 {
@@ -4003,7 +4010,7 @@
                     "name": "Makepe Mathabang"
                 }
             ],
-            "totalSeats": 2,
+            "totalSeats": 3,
             "votes": 13200
         },
         {
@@ -4017,6 +4024,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 1,
             "prSeats": 0.8119916,
+            "partyQuotaRemainder": 0.8119916,
             "code": "RCL",
             "candidates": [
                 {
@@ -4573,6 +4581,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 1,
             "prSeats": 0.69553304,
+            "partyQuotaRemainder": 0.69553304,
             "code": "BCP",
             "candidates": [
                 {
@@ -5129,6 +5138,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 1,
             "prSeats": 0.5633858,
+            "partyQuotaRemainder": 0.5633858,
             "code": "DPL",
             "candidates": [
                 {
@@ -5643,6 +5653,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 1,
             "prSeats": 0.5499096,
+            "partyQuotaRemainder": 0.5499096,
             "code": "MFP",
             "candidates": [
                 {
@@ -6101,6 +6112,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 1,
             "prSeats": 0.47086257,
+            "partyQuotaRemainder": 0.47086257,
             "code": "LPC",
             "candidates": [
                 {
@@ -6535,436 +6547,6 @@
             "votes": 2341
         },
         {
-            "voteShareRemainder": 0.31253654,
-            "partyQuota": 0.36566773,
-            "seats": 0,
-            "voteShare": 0.31253654,
-            "elected": [
-                
-            ],
-            "prSeatsRoundDown": 0,
-            "remainderPrSeats": 1,
-            "prSeats": 0.36566773,
-            "code": "BDNP",
-            "candidates": [
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "278",
-                    "votes": 23,
-                    "name": "Koenane 'Manyefolo"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.9,
-                    "code": "226",
-                    "votes": 59,
-                    "name": "Selatela Qatsa Francis"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "265",
-                    "votes": 21,
-                    "name": "Mahlaba Limpho"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "234",
-                    "votes": 29,
-                    "name": "Mapoko Machongoa"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "259",
-                    "votes": 40,
-                    "name": "Tjekola Letsatsi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "1311",
-                    "votes": 35,
-                    "name": "Lekoetje Thabo"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "1196",
-                    "votes": 36,
-                    "name": "Pule 'Maliopelo Josephina"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "1245",
-                    "votes": 22,
-                    "name": "Molapo Masekhonyana"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.7,
-                    "code": "1157",
-                    "votes": 47,
-                    "name": "Phooko Phooko"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "1117",
-                    "votes": 12,
-                    "name": "Lekata Lebohang"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "1342",
-                    "votes": 9,
-                    "name": "Ratiea Tsietsi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "1230",
-                    "votes": 32,
-                    "name": "Motlojoa Mosele Cathrine"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "1380",
-                    "votes": 32,
-                    "name": "Tuane Sejake"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "1144",
-                    "votes": 25,
-                    "name": "Raliile  Folepe Benedict"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "1261",
-                    "votes": 35,
-                    "name": "Makunyapane Moleboheng"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "1281",
-                    "votes": 23,
-                    "name": "Maleke Sello Paul"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "163",
-                    "votes": 16,
-                    "name": "Nyoni  Refilie Ellen"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 2.2,
-                    "code": "2",
-                    "votes": 160,
-                    "name": "Letsoela Pelele Abraham"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "41",
-                    "votes": 35,
-                    "name": "Hanyane Mohapi Thomas"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "61",
-                    "votes": 26,
-                    "name": "Foloko   ''Matsepang Joyce"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "178",
-                    "votes": 29,
-                    "name": "Khereng  Neo Johannes"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "100",
-                    "votes": 20,
-                    "name": "Bale Mputiti Paul"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "136",
-                    "votes": 35,
-                    "name": "Koetje Ralitsebe"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "208",
-                    "votes": 37,
-                    "name": "Thuhloane  Matheresia Rose Mary"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "498",
-                    "votes": 19,
-                    "name": "Tsoeu Labane"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "729",
-                    "votes": 29,
-                    "name": "Molojane Napo"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "636",
-                    "votes": 30,
-                    "name": "'Mabathoana Motebele Joseph"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "669",
-                    "votes": 11,
-                    "name": "Moahloli Lerato"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "619",
-                    "votes": 25,
-                    "name": "Mofolo Moferefere"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "753",
-                    "votes": 20,
-                    "name": "Mpobole Motlatsi Clement"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "716",
-                    "votes": 6,
-                    "name": "Ntsukunyane Naha Christopher"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "585",
-                    "votes": 16,
-                    "name": "Mohlomi Moselantja"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "565",
-                    "votes": 29,
-                    "name": "Mokhabela 'Mapakiso"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "532",
-                    "votes": 17,
-                    "name": "Kolotsane Thato Agnes"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "554",
-                    "votes": 24,
-                    "name": "Tsoene Vincent Tanki"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "415",
-                    "votes": 5,
-                    "name": "Kotelo Manthethi Bernattar"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "375",
-                    "votes": 18,
-                    "name": "Taole Lebohang Ernest"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "314",
-                    "votes": 34,
-                    "name": "Matamose Nkoane"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "360",
-                    "votes": 23,
-                    "name": "Ramoshabe Mpho"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "385",
-                    "votes": 27,
-                    "name": "Moeketsi 'Manthethe Motselisi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.6,
-                    "code": "302",
-                    "votes": 37,
-                    "name": "Mohapi Mamokhele"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "984",
-                    "votes": 31,
-                    "name": "Kotelo Nthethi Joyce"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "947",
-                    "votes": 25,
-                    "name": "Molelekoa Israel"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.6,
-                    "code": "952",
-                    "votes": 38,
-                    "name": "Khampepe Malintsi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "1359",
-                    "votes": 29,
-                    "name": "Belemane Mantoa Anacletta"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 1.0,
-                    "code": "910",
-                    "votes": 55,
-                    "name": "Berente Marelebohile Marianna"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.1,
-                    "code": "885",
-                    "votes": 9,
-                    "name": "Makhoana Mpoi Evodia"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.7,
-                    "code": "858",
-                    "votes": 42,
-                    "name": "Mofomobe Seqao Jeremiah"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "1010",
-                    "votes": 15,
-                    "name": "Mbobo Lebohang"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "1031",
-                    "votes": 20,
-                    "name": "Mpepe  Setsoto"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.6,
-                    "code": "1078",
-                    "votes": 47,
-                    "name": "Pule Mamoeketsi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.7,
-                    "code": "1052",
-                    "votes": 49,
-                    "name": "Mochobi  Mahopolang Alina"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.4,
-                    "code": "1106",
-                    "votes": 32,
-                    "name": "Mahasele  Kolobetso"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.8,
-                    "code": "1088",
-                    "votes": 45,
-                    "name": "Mokhethi   Mokhethi"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.6,
-                    "code": "1049",
-                    "votes": 42,
-                    "name": "Tjamela   Teboho"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.3,
-                    "code": "791",
-                    "votes": 22,
-                    "name": "Matete Setlokoane Phillimon"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.5,
-                    "code": "763",
-                    "votes": 44,
-                    "name": "Kometsane Matoka"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.7,
-                    "code": "780",
-                    "votes": 50,
-                    "name": "Maphalla Malerato"
-                },
-                {
-                    "party": "BDNP",
-                    "share": 0.2,
-                    "code": "809",
-                    "votes": 15,
-                    "name": "Litaba Pakisang"
-                }
-            ],
-            "totalSeats": 1,
-            "votes": 1818
-        },
-        {
             "voteShareRemainder": 0.09594083,
             "partyQuota": 1.2822508,
             "seats": 0,
@@ -6975,6 +6557,7 @@
             "prSeatsRoundDown": 1,
             "remainderPrSeats": 0,
             "prSeats": 1.2822508,
+            "partyQuotaRemainder": 0.28225076,
             "code": "NIP",
             "candidates": [
                 {
@@ -7514,6 +7097,437 @@
             "votes": 6375
         },
         {
+            "voteShareRemainder": 0.31253654,
+            "partyQuota": 0.36566773,
+            "seats": 0,
+            "voteShare": 0.31253654,
+            "elected": [
+                
+            ],
+            "prSeatsRoundDown": 0,
+            "remainderPrSeats": 0,
+            "prSeats": 0.36566773,
+            "partyQuotaRemainder": 0.36566773,
+            "code": "BDNP",
+            "candidates": [
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "278",
+                    "votes": 23,
+                    "name": "Koenane 'Manyefolo"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.9,
+                    "code": "226",
+                    "votes": 59,
+                    "name": "Selatela Qatsa Francis"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "265",
+                    "votes": 21,
+                    "name": "Mahlaba Limpho"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "234",
+                    "votes": 29,
+                    "name": "Mapoko Machongoa"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "259",
+                    "votes": 40,
+                    "name": "Tjekola Letsatsi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "1311",
+                    "votes": 35,
+                    "name": "Lekoetje Thabo"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "1196",
+                    "votes": 36,
+                    "name": "Pule 'Maliopelo Josephina"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "1245",
+                    "votes": 22,
+                    "name": "Molapo Masekhonyana"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.7,
+                    "code": "1157",
+                    "votes": 47,
+                    "name": "Phooko Phooko"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "1117",
+                    "votes": 12,
+                    "name": "Lekata Lebohang"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "1342",
+                    "votes": 9,
+                    "name": "Ratiea Tsietsi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "1230",
+                    "votes": 32,
+                    "name": "Motlojoa Mosele Cathrine"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "1380",
+                    "votes": 32,
+                    "name": "Tuane Sejake"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "1144",
+                    "votes": 25,
+                    "name": "Raliile  Folepe Benedict"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "1261",
+                    "votes": 35,
+                    "name": "Makunyapane Moleboheng"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "1281",
+                    "votes": 23,
+                    "name": "Maleke Sello Paul"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "163",
+                    "votes": 16,
+                    "name": "Nyoni  Refilie Ellen"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 2.2,
+                    "code": "2",
+                    "votes": 160,
+                    "name": "Letsoela Pelele Abraham"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "41",
+                    "votes": 35,
+                    "name": "Hanyane Mohapi Thomas"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "61",
+                    "votes": 26,
+                    "name": "Foloko   ''Matsepang Joyce"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "178",
+                    "votes": 29,
+                    "name": "Khereng  Neo Johannes"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "100",
+                    "votes": 20,
+                    "name": "Bale Mputiti Paul"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "136",
+                    "votes": 35,
+                    "name": "Koetje Ralitsebe"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "208",
+                    "votes": 37,
+                    "name": "Thuhloane  Matheresia Rose Mary"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "498",
+                    "votes": 19,
+                    "name": "Tsoeu Labane"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "729",
+                    "votes": 29,
+                    "name": "Molojane Napo"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "636",
+                    "votes": 30,
+                    "name": "'Mabathoana Motebele Joseph"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "669",
+                    "votes": 11,
+                    "name": "Moahloli Lerato"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "619",
+                    "votes": 25,
+                    "name": "Mofolo Moferefere"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "753",
+                    "votes": 20,
+                    "name": "Mpobole Motlatsi Clement"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "716",
+                    "votes": 6,
+                    "name": "Ntsukunyane Naha Christopher"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "585",
+                    "votes": 16,
+                    "name": "Mohlomi Moselantja"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "565",
+                    "votes": 29,
+                    "name": "Mokhabela 'Mapakiso"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "532",
+                    "votes": 17,
+                    "name": "Kolotsane Thato Agnes"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "554",
+                    "votes": 24,
+                    "name": "Tsoene Vincent Tanki"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "415",
+                    "votes": 5,
+                    "name": "Kotelo Manthethi Bernattar"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "375",
+                    "votes": 18,
+                    "name": "Taole Lebohang Ernest"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "314",
+                    "votes": 34,
+                    "name": "Matamose Nkoane"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "360",
+                    "votes": 23,
+                    "name": "Ramoshabe Mpho"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "385",
+                    "votes": 27,
+                    "name": "Moeketsi 'Manthethe Motselisi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.6,
+                    "code": "302",
+                    "votes": 37,
+                    "name": "Mohapi Mamokhele"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "984",
+                    "votes": 31,
+                    "name": "Kotelo Nthethi Joyce"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "947",
+                    "votes": 25,
+                    "name": "Molelekoa Israel"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.6,
+                    "code": "952",
+                    "votes": 38,
+                    "name": "Khampepe Malintsi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "1359",
+                    "votes": 29,
+                    "name": "Belemane Mantoa Anacletta"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 1.0,
+                    "code": "910",
+                    "votes": 55,
+                    "name": "Berente Marelebohile Marianna"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.1,
+                    "code": "885",
+                    "votes": 9,
+                    "name": "Makhoana Mpoi Evodia"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.7,
+                    "code": "858",
+                    "votes": 42,
+                    "name": "Mofomobe Seqao Jeremiah"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "1010",
+                    "votes": 15,
+                    "name": "Mbobo Lebohang"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "1031",
+                    "votes": 20,
+                    "name": "Mpepe  Setsoto"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.6,
+                    "code": "1078",
+                    "votes": 47,
+                    "name": "Pule Mamoeketsi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.7,
+                    "code": "1052",
+                    "votes": 49,
+                    "name": "Mochobi  Mahopolang Alina"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.4,
+                    "code": "1106",
+                    "votes": 32,
+                    "name": "Mahasele  Kolobetso"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.8,
+                    "code": "1088",
+                    "votes": 45,
+                    "name": "Mokhethi   Mokhethi"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.6,
+                    "code": "1049",
+                    "votes": 42,
+                    "name": "Tjamela   Teboho"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.3,
+                    "code": "791",
+                    "votes": 22,
+                    "name": "Matete Setlokoane Phillimon"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.5,
+                    "code": "763",
+                    "votes": 44,
+                    "name": "Kometsane Matoka"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.7,
+                    "code": "780",
+                    "votes": 50,
+                    "name": "Maphalla Malerato"
+                },
+                {
+                    "party": "BDNP",
+                    "share": 0.2,
+                    "code": "809",
+                    "votes": 15,
+                    "name": "Litaba Pakisang"
+                }
+            ],
+            "totalSeats": 0,
+            "votes": 1818
+        },
+        {
             "voteShareRemainder": 0.29414192,
             "partyQuota": 0.34414604,
             "seats": 0,
@@ -7524,6 +7538,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.34414604,
+            "partyQuotaRemainder": 0.34414604,
             "code": "LWP",
             "candidates": [
                 {
@@ -7849,6 +7864,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.3375085,
+            "partyQuotaRemainder": 0.3375085,
             "code": "IND",
             "candidates": [
                 {
@@ -8181,6 +8197,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.28018436,
+            "partyQuotaRemainder": 0.28018436,
             "code": "BAENA",
             "candidates": [
                 {
@@ -8639,6 +8656,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.2636911,
+            "partyQuotaRemainder": 0.2636911,
             "code": "HDP",
             "candidates": [
                 {
@@ -8873,6 +8891,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.20596467,
+            "partyQuotaRemainder": 0.20596467,
             "code": "LMM",
             "candidates": [
                 {
@@ -9247,6 +9266,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.20596467,
+            "partyQuotaRemainder": 0.20596467,
             "code": "MDM",
             "candidates": [
                 {
@@ -9544,6 +9564,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.16432923,
+            "partyQuotaRemainder": 0.16432923,
             "code": "TRU",
             "candidates": [
                 {
@@ -9736,6 +9757,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.13757797,
+            "partyQuotaRemainder": 0.13757797,
             "code": "BANC",
             "candidates": [
                 {
@@ -9935,6 +9957,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.080857225,
+            "partyQuotaRemainder": 0.080857225,
             "code": "TSD",
             "candidates": [
                 {
@@ -10057,6 +10080,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.064766236,
+            "partyQuotaRemainder": 0.064766236,
             "code": "CFM",
             "candidates": [
                 {
@@ -10137,6 +10161,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.056117326,
+            "partyQuotaRemainder": 0.056117326,
             "code": "BTS",
             "candidates": [
                 {
@@ -10287,6 +10312,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.049479794,
+            "partyQuotaRemainder": 0.049479794,
             "code": "SSD",
             "candidates": [
                 {
@@ -10437,6 +10463,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.034193352,
+            "partyQuotaRemainder": 0.034193352,
             "code": "ADC",
             "candidates": [
                 {
@@ -10503,6 +10530,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.027958095,
+            "partyQuotaRemainder": 0.027958095,
             "code": "WHP",
             "candidates": [
                 {
@@ -10590,6 +10618,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.015688716,
+            "partyQuotaRemainder": 0.015688716,
             "code": "AUM",
             "candidates": [
                 {
@@ -10642,6 +10671,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.005430709,
+            "partyQuotaRemainder": 0.005430709,
             "code": "EMFP",
             "candidates": [
                 {
@@ -10666,6 +10696,7 @@
             "prSeatsRoundDown": 0,
             "remainderPrSeats": 0,
             "prSeats": 0.0046261596,
+            "partyQuotaRemainder": 0.0046261596,
             "code": "MLPC",
             "candidates": [
                 {
