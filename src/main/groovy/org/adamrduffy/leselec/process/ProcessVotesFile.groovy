@@ -10,13 +10,13 @@ class ProcessVotesFile {
 
     static Seats calculateSeats(List<Party> parties, int byelections) {
         int nationalTotalVotes = parties.sum { it.votes } as int
-        float nationalQuota = nationalTotalVotes / TOTAL_SEATS
+        float nationalQuota = nationalTotalVotes / (TOTAL_SEATS - byelections)
         println "$nationalTotalVotes $nationalQuota"
         parties.sort(new PartyCodeComparator())
         parties.each { party ->
             party.partyQuota = party.votes / nationalQuota
             party.voteShare = (party.votes / nationalTotalVotes) * 100
-            println "$party.code Seats: $party.seats + $party.prSeatsRoundDown ($party.votes $party.voteShare %)"
+            println "$party.code Seats: $party.seats + $party.prSeatsRoundDown ($party.votes $party.partyQuota % $party.voteShare %)"
         }
         int seatsAllocated = byelections + parties.sum { it.getTotalSeats() } as int
         println "Total Seats Allocated: $seatsAllocated"
@@ -26,6 +26,10 @@ class ProcessVotesFile {
         parties.take(remaining).each { party ->
             println "$party.code PR Remainder $party.voteShareRemainder"
             party.remainderPrSeats += 1
+        }
+        parties.sort(new PartySeatComparator())
+        parties.each { party ->
+            println "$party.code Seats: $party.totalSeats"
         }
         return new Seats(parties: parties, nationalQuota: nationalQuota as float)
     }
@@ -63,6 +67,13 @@ class ProcessVotesFile {
         @Override
         int compare(Party o1, Party o2) {
             return o2.voteShareRemainder <=> o1.voteShareRemainder
+        }
+    }
+
+    static class PartySeatComparator implements Comparator<Party> {
+        @Override
+        int compare(Party o1, Party o2) {
+            return o2.totalSeats <=> o1.totalSeats
         }
     }
 

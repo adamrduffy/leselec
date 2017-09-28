@@ -29,7 +29,7 @@ class Party {
     }
 
     int getTotalSeats() {
-        return getSeats() + getPrSeatsRoundDown()
+        return getSeats() + getPrSeatsRoundDown() + remainderPrSeats
     }
 
     int getVotes() {
