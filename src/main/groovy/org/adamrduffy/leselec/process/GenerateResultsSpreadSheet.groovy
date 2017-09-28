@@ -50,8 +50,8 @@ class GenerateResultsSpreadSheet {
     }
 
     static void main(String[] args) {
-        def results = JsonFile.load("results.json")
-        def csv = new File("results.csv")
+        def results = JsonFile.load("votes.json")
+        def csv = new File("votes.csv")
         csv.write generateSpreadSheet(results as List<District>)
     }
 }

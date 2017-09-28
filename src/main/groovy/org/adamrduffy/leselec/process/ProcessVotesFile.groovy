@@ -5,7 +5,7 @@ import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.domain.Seats
 import org.adamrduffy.leselec.json.JsonFile
 
-class ProcessResults {
+class ProcessVotesFile {
     static Seats calculateSeats(List<Party> parties) {
         float nationalQuota = (parties.sum { it.votes }) / 120
         parties.each { party ->
@@ -33,7 +33,7 @@ class ProcessResults {
     }
 
     static void main(String[] args) {
-        def results = JsonFile.load("results.json")
+        def results = JsonFile.load("votes.json")
         def parties = findWinners(results as List<District>)
         JsonFile.save(calculateSeats(new ArrayList<Party>(parties.values())), "seats.json")
     }

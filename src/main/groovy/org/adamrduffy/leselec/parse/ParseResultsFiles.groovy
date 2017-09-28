@@ -9,17 +9,17 @@ import org.adamrduffy.leselec.domain.District
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 
-class ParseResultFile {
-    static void parseAllResultFiles(List<District> districts) {
+class ParseResultsFiles {
+    static void parseAllResultFiles(List<District> districts, String... byelectionConstituencyCodes) {
         districts.each { district ->
             district.constituencies = new ArrayList<>()
             district.results.each { result ->
-                district.constituencies.add(parseResultFile(new File(result.file)))
+                district.constituencies.add(parseResultFile(new File(result.file), byelectionConstituencyCodes))
             }
         }
     }
 
-    static Constituency parseResultFile(File file) {
+    static Constituency parseResultFile(File file, String... byelectionConstituencyCodes) {
         PDFTableExtractor extractor = new PDFTableExtractor()
         def tables = extractor.setSource(file).extract()
         String code = null
@@ -46,7 +46,7 @@ class ParseResultFile {
                 }
             }
         }
-        return new Constituency(code: code, name: name, candidates: candidates)
+        return new Constituency(code: code, name: name, candidates: candidates, byelection: byelectionConstituencyCodes.contains(code))
     }
 
     static Object load(String filePath) {
@@ -59,7 +59,7 @@ class ParseResultFile {
 
     static void main(String[] args) {
         def districts = load("districts.json")
-        parseAllResultFiles(districts as List<District>)
-        save(districts, "results.json")
+        parseAllResultFiles(districts as List<District>, "24", "26", "27")
+        save(districts, "votes.json")
     }
 }

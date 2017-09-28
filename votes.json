@@ -1,8 +1,34 @@
 [
     {
+        "results": [
+            {
+                "file": "results\\2017\\BUTHA-BUTHE\\doc.pdf",
+                "url": "user_data/doc.pdf"
+            },
+            {
+                "file": "results\\2017\\BUTHA-BUTHE\\dochololo.pdf",
+                "url": "user_data/dochololo.pdf"
+            },
+            {
+                "file": "results\\2017\\BUTHA-BUTHE\\doc4qalo.pdf",
+                "url": "user_data/doc4qalo.pdf"
+            },
+            {
+                "file": "results\\2017\\BUTHA-BUTHE\\doc1mechachane.pdf",
+                "url": "user_data/doc1mechachane.pdf"
+            },
+            {
+                "file": "results\\2017\\BUTHA-BUTHE\\doc3motete.pdf",
+                "url": "user_data/doc3motete.pdf"
+            }
+        ],
+        "url": "index.php?id=BUTHA-BUTHE",
+        "resultCount": 5,
+        "name": "BUTHA-BUTHE",
         "constituencies": [
             {
                 "code": "05",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "NIP",
@@ -114,6 +140,7 @@
             },
             {
                 "code": "02",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BAENA",
@@ -246,6 +273,7 @@
             },
             {
                 "code": "04",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -364,6 +392,7 @@
             },
             {
                 "code": "01",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MEC",
@@ -489,6 +518,7 @@
             },
             {
                 "code": "03",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LWP",
@@ -605,37 +635,70 @@
                 ],
                 "name": "MOTETE"
             }
-        ],
-        "name": "BUTHA-BUTHE",
-        "resultCount": 5,
-        "results": [
-            {
-                "file": "results\\2017\\BUTHA-BUTHE\\doc.pdf",
-                "url": "user_data/doc.pdf"
-            },
-            {
-                "file": "results\\2017\\BUTHA-BUTHE\\dochololo.pdf",
-                "url": "user_data/dochololo.pdf"
-            },
-            {
-                "file": "results\\2017\\BUTHA-BUTHE\\doc4qalo.pdf",
-                "url": "user_data/doc4qalo.pdf"
-            },
-            {
-                "file": "results\\2017\\BUTHA-BUTHE\\doc1mechachane.pdf",
-                "url": "user_data/doc1mechachane.pdf"
-            },
-            {
-                "file": "results\\2017\\BUTHA-BUTHE\\doc3motete.pdf",
-                "url": "user_data/doc3motete.pdf"
-            }
-        ],
-        "url": "index.php?id=BUTHA-BUTHE"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\LERIBE\\docthabaphatsoa.pdf",
+                "url": "user_data/docthabaphatsoa.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc9mahobong.pdf",
+                "url": "user_data/doc9mahobong.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc11matlakeng.pdf",
+                "url": "user_data/doc11matlakeng.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc12leribe.pdf",
+                "url": "user_data/doc12leribe.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc13hlotse.pdf",
+                "url": "user_data/doc13hlotse.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc14tsikoane.pdf",
+                "url": "user_data/doc14tsikoane.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc15maputsoe.pdf",
+                "url": "user_data/doc15maputsoe.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc10PelaTsoeu.pdf",
+                "url": "user_data/doc10PelaTsoeu.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc16likhetlane.pdf",
+                "url": "user_data/doc16likhetlane.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc18kolonyama.pdf",
+                "url": "user_data/doc18kolonyama.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc7mphosong.pdf",
+                "url": "user_data/doc7mphosong.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc6malibamatso.pdf",
+                "url": "user_data/doc6malibamatso.pdf"
+            },
+            {
+                "file": "results\\2017\\LERIBE\\doc17peka.pdf",
+                "url": "user_data/doc17peka.pdf"
+            }
+        ],
+        "url": "index.php?id=LERIBE",
+        "resultCount": 13,
+        "name": "LERIBE",
         "constituencies": [
             {
                 "code": "08",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -754,6 +817,7 @@
             },
             {
                 "code": "09",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "SSD",
@@ -886,6 +950,7 @@
             },
             {
                 "code": "11",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -1032,6 +1097,7 @@
             },
             {
                 "code": "12",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MEC",
@@ -1164,6 +1230,7 @@
             },
             {
                 "code": "13",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -1282,6 +1349,7 @@
             },
             {
                 "code": "14",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -1421,6 +1489,7 @@
             },
             {
                 "code": "15",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "HDP",
@@ -1574,6 +1643,7 @@
             },
             {
                 "code": "10",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "HDP",
@@ -1692,6 +1762,7 @@
             },
             {
                 "code": "16",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MFP",
@@ -1824,6 +1895,7 @@
             },
             {
                 "code": "18",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -1956,6 +2028,7 @@
             },
             {
                 "code": "07",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "NIP",
@@ -2088,6 +2161,7 @@
             },
             {
                 "code": "06",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BNP",
@@ -2185,6 +2259,7 @@
             },
             {
                 "code": "17",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "TRU",
@@ -2315,69 +2390,62 @@
                 ],
                 "name": "PEKA"
             }
-        ],
-        "name": "LERIBE",
-        "resultCount": 13,
-        "results": [
-            {
-                "file": "results\\2017\\LERIBE\\docthabaphatsoa.pdf",
-                "url": "user_data/docthabaphatsoa.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc9mahobong.pdf",
-                "url": "user_data/doc9mahobong.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc11matlakeng.pdf",
-                "url": "user_data/doc11matlakeng.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc12leribe.pdf",
-                "url": "user_data/doc12leribe.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc13hlotse.pdf",
-                "url": "user_data/doc13hlotse.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc14tsikoane.pdf",
-                "url": "user_data/doc14tsikoane.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc15maputsoe.pdf",
-                "url": "user_data/doc15maputsoe.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc10PelaTsoeu.pdf",
-                "url": "user_data/doc10PelaTsoeu.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc16likhetlane.pdf",
-                "url": "user_data/doc16likhetlane.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc18kolonyama.pdf",
-                "url": "user_data/doc18kolonyama.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc7mphosong.pdf",
-                "url": "user_data/doc7mphosong.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc6malibamatso.pdf",
-                "url": "user_data/doc6malibamatso.pdf"
-            },
-            {
-                "file": "results\\2017\\LERIBE\\doc17peka.pdf",
-                "url": "user_data/doc17peka.pdf"
-            }
-        ],
-        "url": "index.php?id=LERIBE"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\BEREA\\doc29mabote.pdf",
+                "url": "user_data/doc29mabote.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc24TY.pdf",
+                "url": "user_data/doc24TY.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc21belabela.pdf",
+                "url": "user_data/doc21belabela.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc23khafung.pdf",
+                "url": "user_data/doc23khafung.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc28khubetsoana.pdf",
+                "url": "user_data/doc28khubetsoana.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc22malimong.pdf",
+                "url": "user_data/doc22malimong.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc26thupakubu.pdf",
+                "url": "user_data/doc26thupakubu.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc27berea.pdf",
+                "url": "user_data/doc27berea.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc20mokhoroana.pdf",
+                "url": "user_data/doc20mokhoroana.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc19mosalemane.pdf",
+                "url": "user_data/doc19mosalemane.pdf"
+            },
+            {
+                "file": "results\\2017\\BEREA\\doc25tshoanamakhulo.pdf",
+                "url": "user_data/doc25tshoanamakhulo.pdf"
+            }
+        ],
+        "url": "index.php?id=BEREA",
+        "resultCount": 11,
+        "name": "BEREA",
         "constituencies": [
             {
                 "code": "29",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MDM",
@@ -2517,6 +2585,7 @@
             },
             {
                 "code": "24",
+                "byelection": true,
                 "candidates": [
                     {
                         "party": "LCD",
@@ -2656,6 +2725,7 @@
             },
             {
                 "code": "21",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "DPL",
@@ -2802,6 +2872,7 @@
             },
             {
                 "code": "23",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -2955,6 +3026,7 @@
             },
             {
                 "code": "28",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "IND",
@@ -3101,6 +3173,7 @@
             },
             {
                 "code": "22",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AUM",
@@ -3233,6 +3306,7 @@
             },
             {
                 "code": "26",
+                "byelection": true,
                 "candidates": [
                     {
                         "party": "ABC",
@@ -3393,6 +3467,7 @@
             },
             {
                 "code": "27",
+                "byelection": true,
                 "candidates": [
                     {
                         "party": "PFD",
@@ -3532,6 +3607,7 @@
             },
             {
                 "code": "20",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BDNP",
@@ -3650,6 +3726,7 @@
             },
             {
                 "code": "19",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -3775,6 +3852,7 @@
             },
             {
                 "code": "25",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "RCL",
@@ -3905,61 +3983,90 @@
                 ],
                 "name": "TSOANA-MAKHULO"
             }
-        ],
-        "name": "BEREA",
-        "resultCount": 11,
-        "results": [
-            {
-                "file": "results\\2017\\BEREA\\doc29mabote.pdf",
-                "url": "user_data/doc29mabote.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc24TY.pdf",
-                "url": "user_data/doc24TY.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc21belabela.pdf",
-                "url": "user_data/doc21belabela.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc23khafung.pdf",
-                "url": "user_data/doc23khafung.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc28khubetsoana.pdf",
-                "url": "user_data/doc28khubetsoana.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc22malimong.pdf",
-                "url": "user_data/doc22malimong.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc26thupakubu.pdf",
-                "url": "user_data/doc26thupakubu.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc27berea.pdf",
-                "url": "user_data/doc27berea.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc20mokhoroana.pdf",
-                "url": "user_data/doc20mokhoroana.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc19mosalemane.pdf",
-                "url": "user_data/doc19mosalemane.pdf"
-            },
-            {
-                "file": "results\\2017\\BEREA\\doc25tshoanamakhulo.pdf",
-                "url": "user_data/doc25tshoanamakhulo.pdf"
-            }
-        ],
-        "url": "index.php?id=BEREA"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\MASERU\\doc45matsieng.pdf",
+                "url": "user_data/doc45matsieng.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc43qeme.pdf",
+                "url": "user_data/doc43qeme.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc31stadiumarea.pdf",
+                "url": "user_data/doc31stadiumarea.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc35lithoteng.pdf",
+                "url": "user_data/doc35lithoteng.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc33thetsane.pdf",
+                "url": "user_data/doc33thetsane.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc34qoaling.pdf",
+                "url": "user_data/doc34qoaling.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc44rothe.pdf",
+                "url": "user_data/doc44rothe.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc36lithabaneng.pdf",
+                "url": "user_data/doc36lithabaneng.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc30motimposo.pdf",
+                "url": "user_data/doc30motimposo.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc32maseru.pdf",
+                "url": "user_data/doc32maseru.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc37abia.pdf",
+                "url": "user_data/doc37abia.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc38thababosiu.pdf",
+                "url": "user_data/doc38thababosiu.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc39machache.pdf",
+                "url": "user_data/doc39machache.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc41maama.pdf",
+                "url": "user_data/doc41maama.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc42korokoro.pdf",
+                "url": "user_data/doc42korokoro.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc47maletsunyane.pdf",
+                "url": "user_data/doc47maletsunyane.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc40thabaputsoa.pdf",
+                "url": "user_data/doc40thabaputsoa.pdf"
+            },
+            {
+                "file": "results\\2017\\MASERU\\doc46makhaleng.pdf",
+                "url": "user_data/doc46makhaleng.pdf"
+            }
+        ],
+        "url": "index.php?id=MASERU",
+        "resultCount": 18,
+        "name": "MASERU",
         "constituencies": [
             {
                 "code": "45",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "PFD",
@@ -4099,6 +4206,7 @@
             },
             {
                 "code": "43",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "PFD",
@@ -4231,6 +4339,7 @@
             },
             {
                 "code": "31",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MEC",
@@ -4370,6 +4479,7 @@
             },
             {
                 "code": "35",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BDNP",
@@ -4530,6 +4640,7 @@
             },
             {
                 "code": "33",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MFP",
@@ -4676,6 +4787,7 @@
             },
             {
                 "code": "34",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "WHP",
@@ -4843,6 +4955,7 @@
             },
             {
                 "code": "44",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BNP",
@@ -4968,6 +5081,7 @@
             },
             {
                 "code": "36",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "ABC",
@@ -5121,6 +5235,7 @@
             },
             {
                 "code": "30",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MDM",
@@ -5260,6 +5375,7 @@
             },
             {
                 "code": "32",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LWP",
@@ -5399,6 +5515,7 @@
             },
             {
                 "code": "37",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BNP",
@@ -5538,6 +5655,7 @@
             },
             {
                 "code": "38",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "SSD",
@@ -5691,6 +5809,7 @@
             },
             {
                 "code": "39",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LMM",
@@ -5837,6 +5956,7 @@
             },
             {
                 "code": "41",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LCD",
@@ -5976,6 +6096,7 @@
             },
             {
                 "code": "42",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "ABC",
@@ -6129,6 +6250,7 @@
             },
             {
                 "code": "47",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -6233,6 +6355,7 @@
             },
             {
                 "code": "40",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -6351,6 +6474,7 @@
             },
             {
                 "code": "46",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "PFD",
@@ -6453,89 +6577,50 @@
                 ],
                 "name": "MAKHALENG"
             }
-        ],
-        "name": "MASERU",
-        "resultCount": 18,
-        "results": [
-            {
-                "file": "results\\2017\\MASERU\\doc45matsieng.pdf",
-                "url": "user_data/doc45matsieng.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc43qeme.pdf",
-                "url": "user_data/doc43qeme.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc31stadiumarea.pdf",
-                "url": "user_data/doc31stadiumarea.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc35lithoteng.pdf",
-                "url": "user_data/doc35lithoteng.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc33thetsane.pdf",
-                "url": "user_data/doc33thetsane.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc34qoaling.pdf",
-                "url": "user_data/doc34qoaling.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc44rothe.pdf",
-                "url": "user_data/doc44rothe.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc36lithabaneng.pdf",
-                "url": "user_data/doc36lithabaneng.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc30motimposo.pdf",
-                "url": "user_data/doc30motimposo.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc32maseru.pdf",
-                "url": "user_data/doc32maseru.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc37abia.pdf",
-                "url": "user_data/doc37abia.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc38thababosiu.pdf",
-                "url": "user_data/doc38thababosiu.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc39machache.pdf",
-                "url": "user_data/doc39machache.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc41maama.pdf",
-                "url": "user_data/doc41maama.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc42korokoro.pdf",
-                "url": "user_data/doc42korokoro.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc47maletsunyane.pdf",
-                "url": "user_data/doc47maletsunyane.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc40thabaputsoa.pdf",
-                "url": "user_data/doc40thabaputsoa.pdf"
-            },
-            {
-                "file": "results\\2017\\MASERU\\doc46makhaleng.pdf",
-                "url": "user_data/doc46makhaleng.pdf"
-            }
-        ],
-        "url": "index.php?id=MASERU"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\MAFETENG\\doc54qalabane.pdf",
+                "url": "user_data/doc54qalabane.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc55Mafeteng.pdf",
+                "url": "user_data/doc55Mafeteng.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc52ThabanaMorena.pdf",
+                "url": "user_data/doc52ThabanaMorena.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc49kolo.pdf",
+                "url": "user_data/doc49kolo.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc51maliepetsane.pdf",
+                "url": "user_data/doc51maliepetsane.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc53likhoele.pdf",
+                "url": "user_data/doc53likhoele.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc50matelile.pdf",
+                "url": "user_data/doc50matelile.pdf"
+            },
+            {
+                "file": "results\\2017\\MAFETENG\\doc48thabaphechela.pdf",
+                "url": "user_data/doc48thabaphechela.pdf"
+            }
+        ],
+        "url": "index.php?id=MAFETENG",
+        "resultCount": 8,
+        "name": "MAFETENG",
         "constituencies": [
             {
                 "code": "54",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -6668,6 +6753,7 @@
             },
             {
                 "code": "55",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -6821,6 +6907,7 @@
             },
             {
                 "code": "52",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "RCL",
@@ -6932,6 +7019,7 @@
             },
             {
                 "code": "49",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -7064,6 +7152,7 @@
             },
             {
                 "code": "51",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "DC",
@@ -7189,6 +7278,7 @@
             },
             {
                 "code": "53",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -7314,6 +7404,7 @@
             },
             {
                 "code": "50",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LPC",
@@ -7432,6 +7523,7 @@
             },
             {
                 "code": "48",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "DC",
@@ -7562,49 +7654,50 @@
                 ],
                 "name": "THABA-PHECHELA"
             }
-        ],
-        "name": "MAFETENG",
-        "resultCount": 8,
-        "results": [
-            {
-                "file": "results\\2017\\MAFETENG\\doc54qalabane.pdf",
-                "url": "user_data/doc54qalabane.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc55Mafeteng.pdf",
-                "url": "user_data/doc55Mafeteng.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc52ThabanaMorena.pdf",
-                "url": "user_data/doc52ThabanaMorena.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc49kolo.pdf",
-                "url": "user_data/doc49kolo.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc51maliepetsane.pdf",
-                "url": "user_data/doc51maliepetsane.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc53likhoele.pdf",
-                "url": "user_data/doc53likhoele.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc50matelile.pdf",
-                "url": "user_data/doc50matelile.pdf"
-            },
-            {
-                "file": "results\\2017\\MAFETENG\\doc48thabaphechela.pdf",
-                "url": "user_data/doc48thabaphechela.pdf"
-            }
-        ],
-        "url": "index.php?id=MAFETENG"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc57Qhalasi.pdf",
+                "url": "user_data/doc57Qhalasi.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc58mohaleshoek.pdf",
+                "url": "user_data/doc58mohaleshoek.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc59mekaling.pdf",
+                "url": "user_data/doc59mekaling.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc60qaqatu.pdf",
+                "url": "user_data/doc60qaqatu.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc61mpharane.pdf",
+                "url": "user_data/doc61mpharane.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc56taung.pdf",
+                "url": "user_data/doc56taung.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc63hloahloeng.pdf",
+                "url": "user_data/doc63hloahloeng.pdf"
+            },
+            {
+                "file": "results\\2017\\MOHALE'S HOEK\\doc62ketane.pdf",
+                "url": "user_data/doc62ketane.pdf"
+            }
+        ],
+        "url": "index.php?id=MOHALE'S HOEK",
+        "resultCount": 8,
+        "name": "MOHALE'S HOEK",
         "constituencies": [
             {
                 "code": "57",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -7730,6 +7823,7 @@
             },
             {
                 "code": "58",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "HDP",
@@ -7862,6 +7956,7 @@
             },
             {
                 "code": "59",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -7959,6 +8054,7 @@
             },
             {
                 "code": "60",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BNP",
@@ -8049,6 +8145,7 @@
             },
             {
                 "code": "61",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BDNP",
@@ -8160,6 +8257,7 @@
             },
             {
                 "code": "56",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "PFD",
@@ -8278,6 +8376,7 @@
             },
             {
                 "code": "63",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "NIP",
@@ -8382,6 +8481,7 @@
             },
             {
                 "code": "62",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "DC",
@@ -8477,49 +8577,38 @@
                 ],
                 "name": "KETANE"
             }
-        ],
-        "name": "MOHALE'S HOEK",
-        "resultCount": 8,
-        "results": [
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc57Qhalasi.pdf",
-                "url": "user_data/doc57Qhalasi.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc58mohaleshoek.pdf",
-                "url": "user_data/doc58mohaleshoek.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc59mekaling.pdf",
-                "url": "user_data/doc59mekaling.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc60qaqatu.pdf",
-                "url": "user_data/doc60qaqatu.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc61mpharane.pdf",
-                "url": "user_data/doc61mpharane.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc56taung.pdf",
-                "url": "user_data/doc56taung.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc63hloahloeng.pdf",
-                "url": "user_data/doc63hloahloeng.pdf"
-            },
-            {
-                "file": "results\\2017\\MOHALE'S HOEK\\doc62ketane.pdf",
-                "url": "user_data/doc62ketane.pdf"
-            }
-        ],
-        "url": "index.php?id=MOHALE'S HOEK"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\QUTHING\\doc67mtmoorosi.pdf",
+                "url": "user_data/doc67mtmoorosi.pdf"
+            },
+            {
+                "file": "results\\2017\\QUTHING\\doc64tele.pdf",
+                "url": "user_data/doc64tele.pdf"
+            },
+            {
+                "file": "results\\2017\\QUTHING\\doc65moyeni.pdf",
+                "url": "user_data/doc65moyeni.pdf"
+            },
+            {
+                "file": "results\\2017\\QUTHING\\doc66sebapala.pdf",
+                "url": "user_data/doc66sebapala.pdf"
+            },
+            {
+                "file": "results\\2017\\QUTHING\\doc68qhoali.pdf",
+                "url": "user_data/doc68qhoali.pdf"
+            }
+        ],
+        "url": "index.php?id=QUTHING",
+        "resultCount": 5,
+        "name": "QUTHING",
         "constituencies": [
             {
                 "code": "67",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "MDM",
@@ -8638,6 +8727,7 @@
             },
             {
                 "code": "64",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BAENA",
@@ -8749,6 +8839,7 @@
             },
             {
                 "code": "65",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "RCL",
@@ -8874,6 +8965,7 @@
             },
             {
                 "code": "66",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "IND",
@@ -8985,6 +9077,7 @@
             },
             {
                 "code": "68",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "NIP",
@@ -9073,37 +9166,30 @@
                 ],
                 "name": "QHOALI"
             }
-        ],
-        "name": "QUTHING",
-        "resultCount": 5,
-        "results": [
-            {
-                "file": "results\\2017\\QUTHING\\doc67mtmoorosi.pdf",
-                "url": "user_data/doc67mtmoorosi.pdf"
-            },
-            {
-                "file": "results\\2017\\QUTHING\\doc64tele.pdf",
-                "url": "user_data/doc64tele.pdf"
-            },
-            {
-                "file": "results\\2017\\QUTHING\\doc65moyeni.pdf",
-                "url": "user_data/doc65moyeni.pdf"
-            },
-            {
-                "file": "results\\2017\\QUTHING\\doc66sebapala.pdf",
-                "url": "user_data/doc66sebapala.pdf"
-            },
-            {
-                "file": "results\\2017\\QUTHING\\doc68qhoali.pdf",
-                "url": "user_data/doc68qhoali.pdf"
-            }
-        ],
-        "url": "index.php?id=QUTHING"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\QACHA'S NEK\\doc69qacha.pdf",
+                "url": "user_data/doc69qacha.pdf"
+            },
+            {
+                "file": "results\\2017\\QACHA'S NEK\\doc71tsoelike.pdf",
+                "url": "user_data/doc71tsoelike.pdf"
+            },
+            {
+                "file": "results\\2017\\QACHA'S NEK\\doc70lebakeng.pdf",
+                "url": "user_data/doc70lebakeng.pdf"
+            }
+        ],
+        "url": "index.php?id=QACHA'S NEK",
+        "resultCount": 3,
+        "name": "QACHA'S NEK",
         "constituencies": [
             {
                 "code": "69",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "RCL",
@@ -9208,6 +9294,7 @@
             },
             {
                 "code": "71",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AUM",
@@ -9305,6 +9392,7 @@
             },
             {
                 "code": "70",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BNP",
@@ -9386,29 +9474,38 @@
                 ],
                 "name": "LEBAKENG"
             }
-        ],
-        "name": "QACHA'S NEK",
-        "resultCount": 3,
-        "results": [
-            {
-                "file": "results\\2017\\QACHA'S NEK\\doc69qacha.pdf",
-                "url": "user_data/doc69qacha.pdf"
-            },
-            {
-                "file": "results\\2017\\QACHA'S NEK\\doc71tsoelike.pdf",
-                "url": "user_data/doc71tsoelike.pdf"
-            },
-            {
-                "file": "results\\2017\\QACHA'S NEK\\doc70lebakeng.pdf",
-                "url": "user_data/doc70lebakeng.pdf"
-            }
-        ],
-        "url": "index.php?id=QACHA'S NEK"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\THABA-TSEKA\\doc75semena.pdf",
+                "url": "user_data/doc75semena.pdf"
+            },
+            {
+                "file": "results\\2017\\THABA-TSEKA\\doc76mashai.pdf",
+                "url": "user_data/doc76mashai.pdf"
+            },
+            {
+                "file": "results\\2017\\THABA-TSEKA\\doc74thabatseka.pdf",
+                "url": "user_data/doc74thabatseka.pdf"
+            },
+            {
+                "file": "results\\2017\\THABA-TSEKA\\doc73thabamoya.pdf",
+                "url": "user_data/doc73thabamoya.pdf"
+            },
+            {
+                "file": "results\\2017\\THABA-TSEKA\\doc72mantsonyane.pdf",
+                "url": "user_data/doc72mantsonyane.pdf"
+            }
+        ],
+        "url": "index.php?id=THABA-TSEKA",
+        "resultCount": 5,
+        "name": "THABA-TSEKA",
         "constituencies": [
             {
                 "code": "75",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -9520,6 +9617,7 @@
             },
             {
                 "code": "76",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "IND",
@@ -9652,6 +9750,7 @@
             },
             {
                 "code": "74",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BAENA",
@@ -9770,6 +9869,7 @@
             },
             {
                 "code": "73",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "DC",
@@ -9881,6 +9981,7 @@
             },
             {
                 "code": "72",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "BCP",
@@ -9997,37 +10098,34 @@
                 ],
                 "name": "MANTS'ONYANE"
             }
-        ],
-        "name": "THABA-TSEKA",
-        "resultCount": 5,
-        "results": [
-            {
-                "file": "results\\2017\\THABA-TSEKA\\doc75semena.pdf",
-                "url": "user_data/doc75semena.pdf"
-            },
-            {
-                "file": "results\\2017\\THABA-TSEKA\\doc76mashai.pdf",
-                "url": "user_data/doc76mashai.pdf"
-            },
-            {
-                "file": "results\\2017\\THABA-TSEKA\\doc74thabatseka.pdf",
-                "url": "user_data/doc74thabatseka.pdf"
-            },
-            {
-                "file": "results\\2017\\THABA-TSEKA\\doc73thabamoya.pdf",
-                "url": "user_data/doc73thabamoya.pdf"
-            },
-            {
-                "file": "results\\2017\\THABA-TSEKA\\doc72mantsonyane.pdf",
-                "url": "user_data/doc72mantsonyane.pdf"
-            }
-        ],
-        "url": "index.php?id=THABA-TSEKA"
+        ]
     },
     {
+        "results": [
+            {
+                "file": "results\\2017\\MOKHOTLONG\\doc79mokhotlong.pdf",
+                "url": "user_data/doc79mokhotlong.pdf"
+            },
+            {
+                "file": "results\\2017\\MOKHOTLONG\\doc77malingoaneng.pdf",
+                "url": "user_data/doc77malingoaneng.pdf"
+            },
+            {
+                "file": "results\\2017\\MOKHOTLONG\\doc78senqu.pdf",
+                "url": "user_data/doc78senqu.pdf"
+            },
+            {
+                "file": "results\\2017\\MOKHOTLONG\\doc80bobatsi.pdf",
+                "url": "user_data/doc80bobatsi.pdf"
+            }
+        ],
+        "url": "index.php?id=MOKHOTLONG",
+        "resultCount": 4,
+        "name": "MOKHOTLONG",
         "constituencies": [
             {
                 "code": "79",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "LMM",
@@ -10153,6 +10251,7 @@
             },
             {
                 "code": "77",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -10271,6 +10370,7 @@
             },
             {
                 "code": "78",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "RCL",
@@ -10375,6 +10475,7 @@
             },
             {
                 "code": "80",
+                "byelection": false,
                 "candidates": [
                     {
                         "party": "AD",
@@ -10484,27 +10585,6 @@
                 ],
                 "name": "BOBATSI"
             }
-        ],
-        "name": "MOKHOTLONG",
-        "resultCount": 4,
-        "results": [
-            {
-                "file": "results\\2017\\MOKHOTLONG\\doc79mokhotlong.pdf",
-                "url": "user_data/doc79mokhotlong.pdf"
-            },
-            {
-                "file": "results\\2017\\MOKHOTLONG\\doc77malingoaneng.pdf",
-                "url": "user_data/doc77malingoaneng.pdf"
-            },
-            {
-                "file": "results\\2017\\MOKHOTLONG\\doc78senqu.pdf",
-                "url": "user_data/doc78senqu.pdf"
-            },
-            {
-                "file": "results\\2017\\MOKHOTLONG\\doc80bobatsi.pdf",
-                "url": "user_data/doc80bobatsi.pdf"
-            }
-        ],
-        "url": "index.php?id=MOKHOTLONG"
+        ]
     }
 ]

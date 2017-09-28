@@ -7,4 +7,5 @@ class Constituency {
     String code
     String name
     List<Candidate> candidates
+    boolean byelection
 }
