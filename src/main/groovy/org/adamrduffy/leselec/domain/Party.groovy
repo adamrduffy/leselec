@@ -18,6 +18,10 @@ class Party {
         return Math.max(0, partyQuota - getSeats())
     }
 
+    int getPrSeatsRoundDown() {
+        return Math.floor(Math.max(0, partyQuota - getSeats())) as int
+    }
+
     int getTotalSeats() {
         return Math.max(getSeats(), (int) Math.floor(getPrSeats()))
     }

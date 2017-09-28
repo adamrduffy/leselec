@@ -8,11 +8,18 @@ import org.adamrduffy.leselec.json.JsonFile
 class ProcessVotesFile {
     static Seats calculateSeats(List<Party> parties) {
         float nationalQuota = (parties.sum { it.votes }) / 120
+        parties.sort(new Comparator<Party>() {
+            @Override
+            int compare(Party o1, Party o2) {
+                return o1.code <=> o2.code
+            }
+        })
         parties.each { party ->
             party.partyQuota = party.votes / nationalQuota
+            println "$party.code Seats: $party.seats + $party.prSeatsRoundDown"
         }
-        int seatsAllocated = parties.sum { it.getTotalSeats() }
-        println seatsAllocated
+        int seatsAllocated = parties.sum { it.getTotalSeats() } as int
+        println "Total Seats Allocated: $seatsAllocated"
         return new Seats(parties: parties, nationalQuota: nationalQuota as float)
     }
 
@@ -26,7 +33,9 @@ class ProcessVotesFile {
                     parties.put(party.code, party)
                 }
                 def elected = constituency.candidates.max { it.votes }
-                parties.get(elected.party).elected.add(elected)
+                if (!constituency.byelection) {
+                    parties.get(elected.party).elected.add(elected)
+                }
             }
         }
         return parties
