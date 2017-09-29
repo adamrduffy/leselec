@@ -2,6 +2,7 @@ Lesotho uses a unique method of Mixed-Member Proportional Representation (MMP). 
 
 ## References
 IFES Election Guide
+
 http://www.electionguide.org/elections/id/2809/
 
 * TrapRange
