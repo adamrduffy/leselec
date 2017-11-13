@@ -45,7 +45,7 @@ class ParliamentArchDiagram {
             stringBuffer << generatePartySeatGroup(party.code, fillColour, fillColour, party.elected, totalCounter, party.totalSeats, radius, poslist)
             totalCounter += party.totalSeats
         }
-        stringBuffer << generatePartySeatGroup("EMPTY", "#FFFFFF", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
+        stringBuffer << generatePartySeatGroup(null, "#FFFFFF", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
 
         stringBuffer << "</g>\n"
         stringBuffer << "</svg>\n"
@@ -90,10 +90,13 @@ class ParliamentArchDiagram {
             def y = 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0
             def r = radius * 100.0
             stringBuffer << sprintf("        <circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\">\n", x, y, r)
-            if (!candidates.empty) {
+            def name = code == null ? "Vacant" : "PR - $code"
+            if (candidates.empty) {
+                stringBuffer << "            <title>$name</title>\n"
+            } else {
                 def candidate = candidates[totalCounter >= counter ? totalCounter - counter : counter]
                 if (candidate == null) {
-                    stringBuffer << "            <title>PR - $code</title>\n"
+                    stringBuffer << "            <title>$name</title>\n"
                 } else {
                     stringBuffer << "            <title>$candidate.name - $code</title>\n"
                 }
