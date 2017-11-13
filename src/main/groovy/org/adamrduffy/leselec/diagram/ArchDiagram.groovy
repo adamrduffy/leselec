@@ -59,8 +59,8 @@ class ArchDiagram {
                 poslist << ([angle, R * Math.cos(angle) + 1.75, R * Math.sin(angle)])
             }
         }
-        poslist = poslist.reverse()
-        println poslist.size()
+        // sort by position so that party seats are grouped together
+        poslist = poslist.sort { a, b -> a[0] <=> b[0]}.reverse()
 
         int totalCounter = 0
         for (party in electedParties) {
