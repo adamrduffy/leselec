@@ -2,12 +2,14 @@ package org.adamrduffy.leselec.diagram
 
 import org.adamrduffy.leselec.domain.Candidate
 import org.adamrduffy.leselec.domain.Party
+import org.adamrduffy.leselec.domain.PartyColour
 import org.adamrduffy.leselec.json.JsonFile
+import org.apache.commons.lang3.StringUtils
 
 /**
  * Adapted from https://github.com/slashme/parliamentdiagram/blob/master/newarch.py
  */
-class ArchDiagram {
+class ParliamentArchDiagram {
     static final int[] TOTALS = [3, 15, 33, 61, 95, 138, 189, 247, 313, 388, 469, 559, 657, 762, 876, 997, 1126, 1263,
                                  1408, 1560, 1722, 1889, 2066, 2250, 2442, 2641, 2850, 3064, 3289, 3519, 3759, 4005,
                                  4261, 4522, 4794, 5071, 5358, 5652, 5953, 6263, 6581, 6906, 7239, 7581, 7929, 8287,
@@ -16,7 +18,7 @@ class ArchDiagram {
                                  20323, 20888, 21468, 22050, 22645, 23243, 23853, 24467, 25094, 25723, 26364, 27011,
                                  27667, 28329, 29001, 29679, 30367, 31061]
 
-    static String generate(List<Party> parties, int delegates = 120) {
+    static String generate(List<Party> parties, List<PartyColour> partyColours, int delegates = 120) {
         List<Party> electedParties = parties.findAll { party -> party.totalSeats > 0 }
 
         int rows = 0
@@ -38,8 +40,8 @@ class ArchDiagram {
 
         int totalCounter = 0
         for (party in electedParties) {
-            def color = Party.getColor(party.code)
-            stringBuffer << generatePartySeatGroup(party.code, color, party.elected, totalCounter, party.totalSeats, radius, poslist)
+            def partyColour = partyColours.find { partyColour -> StringUtils.equalsIgnoreCase(party.code, partyColour.code) }
+            stringBuffer << generatePartySeatGroup(party.code, (partyColour == null ? "#808080" : partyColour.colour), party.elected, totalCounter, party.totalSeats, radius, poslist)
             totalCounter += party.totalSeats
         }
         stringBuffer << generatePartySeatGroup("EMPTY", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
@@ -77,7 +79,8 @@ class ArchDiagram {
         }
     }
 
-    static String generatePartySeatGroup(String code, String color, List<Candidate> candidates, int totalCounter, int totalSeats, double radius, def poslist) {
+    static String generatePartySeatGroup(String code, String color, List<Candidate> candidates, int totalCounter, int totalSeats, double radius,
+                                         def poslist) {
         StringBuffer stringBuffer = new StringBuffer()
         stringBuffer << "    <g style=\"fill:$color\" id=\"$code\">\n"
         for (int counter = totalCounter; counter < totalCounter + totalSeats; counter++) {
@@ -100,8 +103,9 @@ class ArchDiagram {
     }
 
     static void main(String[] args) {
+        def colours = JsonFile.load("party.colours.json")
         def seats = JsonFile.load("seats.json")
         def svg = new File("parliament.svg")
-        svg.write generate(seats.parties as List<Party>)
+        svg.write generate(seats.parties as List<Party>, colours as List<PartyColour>)
     }
 }

@@ -239,7 +239,7 @@
             <title>PR - DC</title>
         </circle>
     </g>
-    <g style="fill:#808080" id="LCD">
+    <g style="fill:#66FF66" id="LCD">
         <circle cx="255.63" cy="31.48" r="6.67">
             <title>Metsing Mothejoa - LCD</title>
         </circle>
@@ -274,7 +274,7 @@
             <title>PR - LCD</title>
         </circle>
     </g>
-    <g style="fill:#808080" id="AD">
+    <g style="fill:#009900" id="AD">
         <circle cx="236.52" cy="118.77" r="6.67">
             <title>Moleleki Monyane - AD</title>
         </circle>
@@ -303,7 +303,7 @@
             <title>PR - AD</title>
         </circle>
     </g>
-    <g style="fill:#808080" id="MEC">
+    <g style="fill:#FF99FF" id="MEC">
         <circle cx="305.85" cy="98.38" r="6.67">
             <title>Mochoboroane Selibe - MEC</title>
         </circle>
@@ -323,7 +323,7 @@
             <title>PR - MEC</title>
         </circle>
     </g>
-    <g style="fill:#808080" id="BNP">
+    <g style="fill:#0000FF" id="BNP">
         <circle cx="287.75" cy="135.27" r="6.67">
         </circle>
         <circle cx="333.94" cy="116.13" r="6.67">
@@ -335,7 +335,7 @@
         <circle cx="322.86" cy="134.26" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="PFD">
+    <g style="fill:#660000" id="PFD">
         <circle cx="340.38" cy="134.66" r="6.67">
             <title>Kholumo Thabang Linus - PFD</title>
         </circle>

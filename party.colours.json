@@ -1,0 +1,30 @@
+[
+  {
+    "code": "ABC",
+    "colour": "#CCCC00"
+  },
+  {
+    "code": "AD",
+    "colour": "#009900"
+  },
+  {
+    "code": "BNP",
+    "colour": "#0000FF"
+  },
+  {
+    "code": "DC",
+    "colour": "#FF0000"
+  },
+  {
+    "code": "LCD",
+    "colour": "#66FF66"
+  },
+  {
+    "code": "MEC",
+    "colour": "#FF99FF"
+  },
+  {
+    "code": "PFD",
+    "colour": "#660000"
+  }
+]
