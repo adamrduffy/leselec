@@ -41,10 +41,11 @@ class ParliamentArchDiagram {
         int totalCounter = 0
         for (party in electedParties) {
             def partyColour = partyColours.find { partyColour -> StringUtils.equalsIgnoreCase(party.code, partyColour.code) }
-            stringBuffer << generatePartySeatGroup(party.code, (partyColour == null ? "#808080" : partyColour.colour), party.elected, totalCounter, party.totalSeats, radius, poslist)
+            String fillColour = partyColour == null ? "#808080" : partyColour.colour
+            stringBuffer << generatePartySeatGroup(party.code, fillColour, fillColour, party.elected, totalCounter, party.totalSeats, radius, poslist)
             totalCounter += party.totalSeats
         }
-        stringBuffer << generatePartySeatGroup("EMPTY", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
+        stringBuffer << generatePartySeatGroup("EMPTY", "#FFFFFF", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
 
         stringBuffer << "</g>\n"
         stringBuffer << "</svg>\n"
@@ -79,10 +80,11 @@ class ParliamentArchDiagram {
         }
     }
 
-    static String generatePartySeatGroup(String code, String color, List<Candidate> candidates, int totalCounter, int totalSeats, double radius,
+    static String generatePartySeatGroup(String code, String fillColour, String strokeColour,
+                                         List<Candidate> candidates, int totalCounter, int totalSeats, double radius,
                                          def poslist) {
         StringBuffer stringBuffer = new StringBuffer()
-        stringBuffer << "    <g style=\"fill:$color\" id=\"$code\">\n"
+        stringBuffer << "    <g style=\"fill:$fillColour; stroke:$strokeColour; stroke-width: 2;\" id=\"$code\">\n"
         for (int counter = totalCounter; counter < totalCounter + totalSeats; counter++) {
             def x = poslist[counter][1] * 100.0 + 5.0
             def y = 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0

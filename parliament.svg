@@ -4,7 +4,7 @@
      width="360" height="185">
 <g>
     <text x="175" y="175" style="font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:sans-serif">120</text>
-    <g style="fill:#CCCC00" id="ABC">
+    <g style="fill:#CCCC00; stroke:#CCCC00; stroke-width: 2;" id="ABC">
         <circle cx="13.47" cy="173.34" r="6.67">
             <title>Maliehe  Motlohi - ABC</title>
         </circle>
@@ -147,7 +147,7 @@
             <title>Sello Mooki - ABC</title>
         </circle>
     </g>
-    <g style="fill:#FF0000" id="DC">
+    <g style="fill:#FF0000; stroke:#FF0000; stroke-width: 2;" id="DC">
         <circle cx="131.14" cy="38.18" r="6.67">
             <title>Lerafa Tumaole Clement - DC</title>
         </circle>
@@ -239,7 +239,7 @@
             <title>PR - DC</title>
         </circle>
     </g>
-    <g style="fill:#66FF66" id="LCD">
+    <g style="fill:#66FF66; stroke:#66FF66; stroke-width: 2;" id="LCD">
         <circle cx="255.63" cy="31.48" r="6.67">
             <title>Metsing Mothejoa - LCD</title>
         </circle>
@@ -274,7 +274,7 @@
             <title>PR - LCD</title>
         </circle>
     </g>
-    <g style="fill:#009900" id="AD">
+    <g style="fill:#009900; stroke:#009900; stroke-width: 2;" id="AD">
         <circle cx="236.52" cy="118.77" r="6.67">
             <title>Moleleki Monyane - AD</title>
         </circle>
@@ -303,7 +303,7 @@
             <title>PR - AD</title>
         </circle>
     </g>
-    <g style="fill:#FF99FF" id="MEC">
+    <g style="fill:#FF99FF; stroke:#FF99FF; stroke-width: 2;" id="MEC">
         <circle cx="305.85" cy="98.38" r="6.67">
             <title>Mochoboroane Selibe - MEC</title>
         </circle>
@@ -323,7 +323,7 @@
             <title>PR - MEC</title>
         </circle>
     </g>
-    <g style="fill:#0000FF" id="BNP">
+    <g style="fill:#0000FF; stroke:#0000FF; stroke-width: 2;" id="BNP">
         <circle cx="287.75" cy="135.27" r="6.67">
         </circle>
         <circle cx="333.94" cy="116.13" r="6.67">
@@ -335,7 +335,7 @@
         <circle cx="322.86" cy="134.26" r="6.67">
         </circle>
     </g>
-    <g style="fill:#660000" id="PFD">
+    <g style="fill:#660000; stroke:#660000; stroke-width: 2;" id="PFD">
         <circle cx="340.38" cy="134.66" r="6.67">
             <title>Kholumo Thabang Linus - PFD</title>
         </circle>
@@ -346,31 +346,31 @@
             <title>PR - PFD</title>
         </circle>
     </g>
-    <g style="fill:#808080" id="RCL">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="RCL">
         <circle cx="310.62" cy="153.24" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="BCP">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="BCP">
         <circle cx="327.65" cy="153.57" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="DPL">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="DPL">
         <circle cx="344.60" cy="153.82" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="MFP">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="MFP">
         <circle cx="263.07" cy="173.35" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="LPC">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="LPC">
         <circle cx="279.78" cy="173.34" r="6.67">
         </circle>
     </g>
-    <g style="fill:#808080" id="NIP">
+    <g style="fill:#808080; stroke:#808080; stroke-width: 2;" id="NIP">
         <circle cx="296.48" cy="173.34" r="6.67">
         </circle>
     </g>
-    <g style="fill:#000000" id="EMPTY">
+    <g style="fill:#FFFFFF; stroke:#000000; stroke-width: 2;" id="EMPTY">
         <circle cx="313.17" cy="173.34" r="6.67">
         </circle>
         <circle cx="329.85" cy="173.34" r="6.67">
