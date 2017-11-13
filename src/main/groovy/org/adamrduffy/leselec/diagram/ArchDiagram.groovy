@@ -1,5 +1,8 @@
 package org.adamrduffy.leselec.diagram
 
+import org.adamrduffy.leselec.domain.Party
+import org.adamrduffy.leselec.json.JsonFile
+
 /**
  * Adapted from https://github.com/slashme/parliamentdiagram/blob/master/newarch.py
  */
@@ -12,7 +15,9 @@ class ArchDiagram {
                                  20323, 20888, 21468, 22050, 22645, 23243, 23853, 24467, 25094, 25723, 26364, 27011,
                                  27667, 28329, 29001, 29679, 30367, 31061]
 
-    static String generate(int delegates = 120) {
+    static String generate(List<Party> parties, int delegates = 120) {
+        List<Party> electedParties = parties.findAll { party -> party.totalSeats > 0 }
+
         int rows = 0
         for (; rows < TOTALS.length && delegates > TOTALS[rows]; rows++) {
             // do nothing
@@ -43,6 +48,7 @@ class ArchDiagram {
             }
         }
 
+        // the last row with the left over seats
         int J = delegates - poslist.size()
         def R = (7.0 * rows - 2.0) / (4.0 * rows)
         if (J == 1) {
@@ -53,10 +59,24 @@ class ArchDiagram {
                 poslist << ([angle, R * Math.cos(angle) + 1.75, R * Math.sin(angle)])
             }
         }
+        poslist = poslist.reverse()
+        println poslist.size()
 
-        for (Counter in 0..poslist.size() - 1) {
-            stringBuffer << sprintf("<circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\"/>", poslist[Counter][1] * 100.0 + 5.0, 100.0 * (1.75 - (poslist[Counter][2] as double)) + 5.0, radius * 100.0)
+        int totalCounter = 0
+        for (party in electedParties) {
+            def color = Party.getColor(party.code)
+            stringBuffer << "<g style=\"fill:$color\" id=\"$party.code\">\n"
+            for (int counter = totalCounter; counter < totalCounter + party.totalSeats; counter++) {
+                stringBuffer << sprintf("<circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\"/>\n", poslist[counter][1] * 100.0 + 5.0, 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0, radius * 100.0)
+            }
+            totalCounter += party.totalSeats
+            stringBuffer << "</g>\n"
         }
+        stringBuffer << "<g style=\"fill:#000000\" id=\"EMPTY\">\n"
+        for (int counter = totalCounter; counter < delegates; counter++) {
+            stringBuffer << sprintf("<circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\"/>\n", poslist[counter][1] * 100.0 + 5.0, 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0, radius * 100.0)
+        }
+        stringBuffer << "</g>\n"
 
         stringBuffer << "</g>\n"
         stringBuffer << "</svg>\n"
@@ -65,7 +85,8 @@ class ArchDiagram {
     }
 
     static void main(String[] args) {
+        def seats = JsonFile.load("seats.json")
         def svg = new File("parliament.svg")
-        svg.write generate()
+        svg.write generate(seats.parties as List<Party>)
     }
 }

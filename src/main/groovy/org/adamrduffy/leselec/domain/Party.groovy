@@ -39,4 +39,17 @@ class Party {
     int getVotes() {
         return candidates.sum { it.votes } as int
     }
+
+    static String getColor(String code) {
+        switch (code) {
+            case "ABC":
+                return '#CCCC00'
+            case "DC":
+                return '#FF0000'
+            case "IND":
+                return '#808080'
+            default:
+                return '#808080'
+        }
+    }
 }
