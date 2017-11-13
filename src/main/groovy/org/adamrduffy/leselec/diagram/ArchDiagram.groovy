@@ -1,5 +1,6 @@
 package org.adamrduffy.leselec.diagram
 
+import org.adamrduffy.leselec.domain.Candidate
 import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.json.JsonFile
 
@@ -38,10 +39,10 @@ class ArchDiagram {
         int totalCounter = 0
         for (party in electedParties) {
             def color = Party.getColor(party.code)
-            stringBuffer << generatePartySeatGroup(party.code, color, totalCounter, radius, party.totalSeats, poslist)
+            stringBuffer << generatePartySeatGroup(party.code, color, party.elected, totalCounter, party.totalSeats, radius, poslist)
             totalCounter += party.totalSeats
         }
-        stringBuffer << generatePartySeatGroup("EMPTY", "#000000", totalCounter, radius, delegates - totalCounter, poslist)
+        stringBuffer << generatePartySeatGroup("EMPTY", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
 
         stringBuffer << "</g>\n"
         stringBuffer << "</svg>\n"
@@ -76,11 +77,23 @@ class ArchDiagram {
         }
     }
 
-    static String generatePartySeatGroup(String code, String color, int totalCounter, double radius, int totalSeats, def poslist) {
+    static String generatePartySeatGroup(String code, String color, List<Candidate> candidates, int totalCounter, int totalSeats, double radius, def poslist) {
         StringBuffer stringBuffer = new StringBuffer()
         stringBuffer << "    <g style=\"fill:$color\" id=\"$code\">\n"
         for (int counter = totalCounter; counter < totalCounter + totalSeats; counter++) {
-            stringBuffer << sprintf("        <circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\"/>\n", poslist[counter][1] * 100.0 + 5.0, 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0, radius * 100.0)
+            def x = poslist[counter][1] * 100.0 + 5.0
+            def y = 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0
+            def r = radius * 100.0
+            stringBuffer << sprintf("        <circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\">\n", x, y, r)
+            if (!candidates.empty) {
+                def candidate = candidates[totalCounter >= counter ? totalCounter - counter : counter]
+                if (candidate == null) {
+                    stringBuffer << "            <title>PR - $code</title>\n"
+                } else {
+                    stringBuffer << "            <title>$candidate.name - $code</title>\n"
+                }
+            }
+            stringBuffer << sprintf("        </circle>\n")
         }
         stringBuffer << "    </g>\n"
         return stringBuffer.toString()
