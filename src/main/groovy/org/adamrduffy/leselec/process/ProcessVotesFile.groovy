@@ -53,7 +53,7 @@ class ProcessVotesFile {
     }
 
     static int countByElections(List<District> districts) {
-        return districts.constituencies.flatten().sum { it.byelection ? 1 : 0 }
+        return districts.constituencies.flatten().sum { it.byelection ? 1 : 0 } as int
     }
 
     static class PartyCodeComparator implements Comparator<Party> {

@@ -24,7 +24,7 @@ class GenerateResultsSpreadSheet {
             }
         })
 
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer stringBuffer = new StringBuffer()
         partyCodes.each { partyCode ->
             stringBuffer << "," + partyCode
         }

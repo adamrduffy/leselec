@@ -1,8 +1,6 @@
 package org.adamrduffy.leselec.scrape
 
 import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.domain.Result
 import org.apache.commons.io.FileUtils
@@ -32,7 +30,7 @@ class DownloadResults {
 
         List<Result> results = new ArrayList<>()
         htmlParser.'**'.findAll{ it.name() == "a" }.each { link ->
-            if (StringUtils.equalsIgnoreCase(link.text(), "Download")) {
+            if (StringUtils.equalsIgnoreCase(link.text() as String, "Download")) {
                 results.add(new Result(url: link.@href.text()))
             }
         }
