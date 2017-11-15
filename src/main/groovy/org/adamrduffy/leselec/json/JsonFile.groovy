@@ -11,4 +11,8 @@ class JsonFile {
     static save(Object content, String filePath) {
         new File(filePath).write(new JsonBuilder(content).toPrettyString())
     }
+
+    static <T> T load(File file) {
+        return (T) new JsonSlurper().parseText(file.text)
+    }
 }
