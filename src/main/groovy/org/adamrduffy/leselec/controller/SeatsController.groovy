@@ -12,6 +12,7 @@ import org.springframework.core.io.Resource
 
 import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
+import javax.faces.context.FacesContext
 import javax.inject.Named
 
 @ApplicationScoped
@@ -26,6 +27,11 @@ class SeatsController implements Serializable {
 
     private List<PartyColour> partyColours
     private Seats seats
+
+    void selectParty(String partyCode) {
+        LOGGER.info(partyCode + " selected")
+        FacesContext.getCurrentInstance().getExternalContext().redirect("party.html")
+    }
 
     String getParliamentArchDiagram() {
         return ParliamentArchDiagram.generate(seats.parties, partyColours)

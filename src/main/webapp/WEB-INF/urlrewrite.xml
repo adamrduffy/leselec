@@ -15,4 +15,13 @@
         <to>/index.html</to>
     </outbound-rule>
 
+    <rule>
+        <from>/party.html</from>
+        <to>/party.jsf</to>
+    </rule>
+    <outbound-rule>
+        <from>/party.jsf</from>
+        <to>/party.html</to>
+    </outbound-rule>
+
 </urlrewrite>
