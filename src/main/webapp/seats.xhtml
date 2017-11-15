@@ -17,13 +17,10 @@
                              csv="true"
                              excel="true"
                              fixedHeader="true"
-                             onselect="ajax:seatsController.selectParty(party.code);"
                              paginated="false"
                              pdf="true"
                              print="true"
                              responsive="true"
-                             select="true"
-                             selectionMode="single"
                              value="#{seatsController.parties}"
                              var="party">
                     <b:dataTableColumn value="#{party.code}">
@@ -47,6 +44,12 @@
                         </f:facet>
                     </b:dataTableColumn>
                     <b:dataTableColumn value="#{party.votes}"/>
+                    <b:dataTableColumn>
+                        <f:facet name="header">
+                            <h:outputText value=""/>
+                        </f:facet>
+                        <b:commandButton value="Party" action="#{seatsController.viewPartyDetails(party.code)}"/>
+                    </b:dataTableColumn>
                 </b:dataTable>
             </b:panel>
         </h:form>

@@ -28,9 +28,9 @@ class SeatsController implements Serializable {
     private List<PartyColour> partyColours
     private Seats seats
 
-    void selectParty(String partyCode) {
+    String viewPartyDetails(String partyCode) {
         LOGGER.info(partyCode + " selected")
-        FacesContext.getCurrentInstance().getExternalContext().redirect("party.html")
+        return "party.html"
     }
 
     String getParliamentArchDiagram() {
