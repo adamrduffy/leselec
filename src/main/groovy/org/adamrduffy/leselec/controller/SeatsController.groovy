@@ -1,5 +1,6 @@
 package org.adamrduffy.leselec.controller
 
+import org.adamrduffy.leselec.diagram.ParliamentArchDiagram
 import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.domain.PartyColour
 import org.adamrduffy.leselec.domain.Seats
@@ -25,6 +26,10 @@ class SeatsController implements Serializable {
 
     private List<PartyColour> partyColours
     private Seats seats
+
+    String getParliamentArchDiagram() {
+        return ParliamentArchDiagram.generate(seats.parties, partyColours)
+    }
 
     List<Party> getParties() {
         return seats.parties
