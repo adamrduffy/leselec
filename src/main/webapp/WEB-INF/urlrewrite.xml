@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<!--
+
+    Configuration file for UrlRewriteFilter
+    http://www.tuckey.org/urlrewrite/
+
+-->
+<urlrewrite>
+
+    <rule>
+        <from>/test</from>
+        <to>/seats.jsf</to>
+    </rule>
+    <outbound-rule>
+        <from>/seats.jsf</from>
+        <to>/test</to>
+    </outbound-rule>
+
+</urlrewrite>

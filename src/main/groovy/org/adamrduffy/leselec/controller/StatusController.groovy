@@ -4,10 +4,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class StatusController {
+class StatusController {
 
     @RequestMapping("/status")
-    public String status() {
-        return "up";
+    String status() {
+        return "up"
     }
 }
