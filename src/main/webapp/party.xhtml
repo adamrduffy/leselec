@@ -8,7 +8,22 @@
 <ui:composition template="layout.xhtml">
     <ui:define name="title"/>
     <ui:define name="content">
-        Test
+        <b:panel collapsible="false" title="Election">
+            <b:dataTable id="candidateTable"
+                         columnVisibility="true"
+                         copy="true"
+                         csv="true"
+                         excel="true"
+                         fixedHeader="true"
+                         paginated="false"
+                         pdf="true"
+                         print="true"
+                         responsive="true"
+                         value="#{partyController.candidates}"
+                         var="candidate">
+                <b:dataTableColumn value="#{candidate.name}"/>
+            </b:dataTable>
+        </b:panel>
     </ui:define>
 </ui:composition>
 </html>

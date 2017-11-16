@@ -39,4 +39,10 @@ class Party {
     int getVotes() {
         return candidates.sum { it.votes } as int
     }
+
+    static Party fromJson(json) {
+        return new Party(code: json.party, votes: json.votes, candidates: json.candidates,
+                elected: json.elected, voteShare: json.voteShare, partyQuota: json.partyQuota,
+                remainderPrSeats: json.remainderPrSeats)
+    }
 }
