@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/leselec-1.0.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/*.jar
