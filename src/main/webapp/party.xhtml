@@ -68,6 +68,22 @@
                         <h:outputText value="Elected"/>
                     </f:facet>
                 </b:dataTableColumn>
+                <b:dataTableColumn value="#{candidate.districtName}">
+                    <f:facet name="header">
+                        <h:outputText value="District"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{candidate.constituencyName}">
+                    <f:facet name="header">
+                        <h:outputText value="Constituency"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{candidate.votes}"/>
+                <b:dataTableColumn value="#{candidate.share}">
+                    <f:facet name="header">
+                        <h:outputText value="Vote Share"/>
+                    </f:facet>
+                </b:dataTableColumn>
             </b:dataTable>
         </h:form>
     </ui:define>

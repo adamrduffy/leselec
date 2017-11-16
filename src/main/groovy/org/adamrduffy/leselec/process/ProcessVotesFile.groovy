@@ -39,6 +39,10 @@ class ProcessVotesFile {
         districts.each { district ->
             district.constituencies.each { constituency ->
                 constituency.candidates.each { candidate ->
+                    candidate.districtName = district.name
+                    candidate.constituencyCode = constituency.code
+                    candidate.constituencyName = constituency.name
+
                     Party party = parties.containsKey(candidate.party) ? parties.get(candidate.party) : new Party(code: candidate.party)
                     party.candidates.add(candidate)
                     parties.put(party.code, party)
