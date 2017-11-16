@@ -24,4 +24,13 @@
         <to>/party.html</to>
     </outbound-rule>
 
+    <rule>
+        <from>/constituency.html</from>
+        <to>/constituency.jsf</to>
+    </rule>
+    <outbound-rule>
+        <from>/constituency.jsf</from>
+        <to>/constituency.html</to>
+    </outbound-rule>
+
 </urlrewrite>

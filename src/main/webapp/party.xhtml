@@ -77,6 +77,7 @@
                     <f:facet name="header">
                         <h:outputText value="Constituency"/>
                     </f:facet>
+                    <b:navCommandLink value="#{candidate.constituencyName}" action="#{partyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}"/>
                 </b:dataTableColumn>
                 <b:dataTableColumn value="#{candidate.votes}"/>
                 <b:dataTableColumn value="#{candidate.share}">
