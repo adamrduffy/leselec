@@ -1,0 +1,1 @@
+web: java -jar build/libs/leselec-1.0.war

@@ -8,8 +8,7 @@ import org.adamrduffy.leselec.domain.Seats
 import org.adamrduffy.leselec.json.JsonFile
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.core.io.Resource
+import org.springframework.core.io.ClassPathResource
 
 import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
@@ -20,11 +19,6 @@ import javax.inject.Named
 @Named("seatsController")
 class SeatsController implements Serializable {
     private static final Logger LOGGER = LoggerFactory.getLogger(SeatsController.class)
-
-    @Value("classpath:party.colours.json")
-    Resource partyColoursFile
-    @Value("classpath:seats.json")
-    Resource seatsFile
 
     @Inject
     SelectedParty selectedParty
@@ -48,8 +42,11 @@ class SeatsController implements Serializable {
 
     @PostConstruct
     void postConstruct() {
+        LOGGER.info("reading json files")
+        ClassPathResource partyColoursJson = new ClassPathResource("party.colours.json")
+        ClassPathResource seatsJson = new ClassPathResource("seats.json")
         LOGGER.info("parsing json files and creating objects")
-        partyColours = JsonFile.load(partyColoursFile.file)
-        seats = JsonFile.load(seatsFile.file)
+        partyColours = JsonFile.load(partyColoursJson.inputStream)
+        seats = JsonFile.load(seatsJson.inputStream)
     }
 }

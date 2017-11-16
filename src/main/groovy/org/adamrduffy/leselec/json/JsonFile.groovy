@@ -12,7 +12,7 @@ class JsonFile {
         new File(filePath).write(new JsonBuilder(content).toPrettyString())
     }
 
-    static <T> T load(File file) {
-        return (T) new JsonSlurper().parseText(file.text)
+    static <T> T load(InputStream inputStream) {
+        return (T) new JsonSlurper().parse(inputStream)
     }
 }
