@@ -16,4 +16,8 @@ class PartyController implements Serializable {
     List<Candidate> getCandidates() {
         return selectedParty.party.candidates
     }
+
+    boolean isCandidateElected(String candidateCode) {
+        return selectedParty.party.isElected(candidateCode)
+    }
 }

@@ -40,6 +40,10 @@ class Party {
         return candidates.sum { it.votes } as int
     }
 
+    boolean isElected(String candidateCode) {
+        return elected.find { e -> candidateCode.equalsIgnoreCase( e.code ) } != null
+    }
+
     static Party fromJson(json) {
         return new Party(code: json.party, votes: json.votes, candidates: json.candidates,
                 elected: json.elected, voteShare: json.voteShare, partyQuota: json.partyQuota,

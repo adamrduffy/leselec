@@ -22,6 +22,11 @@
                          value="#{partyController.candidates}"
                          var="candidate">
                 <b:dataTableColumn value="#{candidate.name}"/>
+                <b:dataTableColumn value="#{partyController.isCandidateElected(candidate.code)}">
+                    <f:facet name="header">
+                        <h:outputText value="Elected"/>
+                    </f:facet>
+                </b:dataTableColumn>
             </b:dataTable>
         </b:panel>
     </ui:define>

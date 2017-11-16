@@ -35,7 +35,7 @@ class SeatsController implements Serializable {
     String viewPartyDetails(String partyCode) {
         LOGGER.info(partyCode + " selected")
         selectedParty.party = Party.fromJson(seats.parties.findResult { party -> partyCode.equalsIgnoreCase(party.code) ? party : null })
-        return "party.html"
+        return "party.html?faces-redirect=true"
     }
 
     String getParliamentArchDiagram() {
