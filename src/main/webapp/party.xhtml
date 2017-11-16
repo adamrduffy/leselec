@@ -8,7 +8,48 @@
 <ui:composition template="layout.xhtml">
     <ui:define name="title"/>
     <ui:define name="content">
-        <b:panel collapsible="false" title="Election">
+        <b:navBar>
+            <b:navbarLinks>
+                <b:navLink value="Seats" href="index.html" iconAwesome="circle"/>
+            </b:navbarLinks>
+        </b:navBar>
+
+        <b:container fluid="true">
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Party"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{partyController.party.code}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Votes"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{partyController.party.votes}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Candidates"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{partyController.party.candidates.size()}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Elected"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{partyController.party.elected.size()}"/>
+                </b:column>
+            </b:row>
+        </b:container>
+
+        <h:form>
             <b:dataTable id="candidateTable"
                          columnVisibility="true"
                          copy="true"
@@ -28,7 +69,7 @@
                     </f:facet>
                 </b:dataTableColumn>
             </b:dataTable>
-        </b:panel>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>

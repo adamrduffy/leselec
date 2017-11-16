@@ -45,7 +45,7 @@ class Party {
     }
 
     static Party fromJson(json) {
-        return new Party(code: json.party, votes: json.votes, candidates: json.candidates,
+        return new Party(code: json.code, votes: json.votes, candidates: json.candidates,
                 elected: json.elected, voteShare: json.voteShare, partyQuota: json.partyQuota,
                 remainderPrSeats: json.remainderPrSeats)
     }
