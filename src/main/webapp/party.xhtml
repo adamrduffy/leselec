@@ -88,8 +88,8 @@
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
-                    <b:commandButton value="District" action="#{partyController.viewDistrict(candidate.districtName)}"/>
-                    <b:commandButton value="Constituency" action="#{partyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}"/>
+                    <b:commandButton value="District" actionListener="#{districtController.viewDistrict(candidate.districtName)}" action="district.html?faces-redirect=true"/>
+                    <b:commandButton value="Constituency" actionListener="#{constituencyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}" action="constituency.html?faces-redirect=true"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>

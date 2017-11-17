@@ -74,7 +74,7 @@
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
-                    <b:commandButton value="Party" actionListener="#{seatsController.readPartyDetails(candidate.party)}" action="party.html?faces-redirect=true"/>
+                    <b:commandButton value="Party" actionListener="#{partyController.readPartyDetails(candidate.party)}" action="party.html?faces-redirect=true"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>

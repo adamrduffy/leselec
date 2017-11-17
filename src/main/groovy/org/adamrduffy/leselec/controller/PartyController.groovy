@@ -1,13 +1,15 @@
 package org.adamrduffy.leselec.controller
 
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
-import org.adamrduffy.leselec.domain.Constituency
-import org.adamrduffy.leselec.domain.District
+import org.adamrduffy.leselec.controller.model.SelectedParty
+import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.service.DistrictsService
+import org.adamrduffy.leselec.service.SeatsService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import javax.enterprise.context.ApplicationScoped
+import javax.faces.event.AbortProcessingException
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -19,30 +21,19 @@ class PartyController implements Serializable {
     @Inject
     DistrictsService districtsService
     @Inject
+    SeatsService seatsService
+
+    @Inject
     SelectedConstituency selectedConstituency
+    @Inject
+    SelectedParty selectedParty
 
-    String viewDistrict(String districtName) {
-        LOGGER.info(districtName)
-        District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }
-        if (district != null) {
-            selectedConstituency.district = district
-            return "district.html?faces-redirect=true"
+    void readPartyDetails(String partyCode) {
+        LOGGER.info(partyCode + " selected")
+        def party = seatsService.read().parties.findResult { party -> partyCode.equalsIgnoreCase(party.code) ? party : null }
+        if (party == null) {
+            throw new AbortProcessingException("unable to determine party for " + partyCode)
         }
-        return "party.html?faces-redirect=true"
-    }
-
-    String viewConstituency(String districtName, String constituencyCode) {
-        LOGGER.info(districtName + " " + constituencyCode)
-        District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }
-        if (district != null) {
-            selectedConstituency.district = district
-            Constituency constituency = district.constituencies.find { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) }
-            if (constituency != null) {
-                selectedConstituency.constituency = constituency
-                return "constituency.html?faces-redirect=true"
-            }
-
-        }
-        return "party.html?faces-redirect=true"
+        selectedParty.party = Party.fromJson(party)
     }
 }
