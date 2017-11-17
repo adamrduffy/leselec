@@ -14,6 +14,71 @@
                 <b:navLink value="Party" href="party.html"/>
             </b:navbarLinks>
         </b:navBar>
+
+        <b:container fluid="true">
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="District"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{selectedConstituency.district.name}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Constituency"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{selectedConstituency.constituency.name}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="By-election"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{selectedConstituency.constituency.byelection}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="6">
+                    <h:outputText value="Candidates"/>
+                </b:column>
+                <b:column span="6">
+                    <h:outputText value="#{selectedConstituency.constituency.candidates.size()}"/>
+                </b:column>
+            </b:row>
+        </b:container>
+
+        <h:form>
+            <b:dataTable id="constituencyTable"
+                         columnVisibility="true"
+                         copy="true"
+                         csv="true"
+                         excel="true"
+                         fixedHeader="true"
+                         paginated="false"
+                         pdf="true"
+                         print="true"
+                         responsive="true"
+                         value="#{selectedConstituency.constituency.candidates}"
+                         var="candidate">
+                <b:dataTableColumn value="#{candidate.name}"/>
+                <b:dataTableColumn value="#{candidate.party}"/>
+                <b:dataTableColumn value="#{candidate.votes}"/>
+                <b:dataTableColumn value="#{candidate.share}">
+                    <f:facet name="header">
+                        <h:outputText value="Vote Share"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <f:facet name="header">
+                        <h:outputText value=""/>
+                    </f:facet>
+                    <b:commandButton value="Party" action="#{seatsController.viewPartyDetails(candidate.party)}"/>
+                </b:dataTableColumn>
+            </b:dataTable>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>

@@ -20,7 +20,7 @@
                     <h:outputText value="Party"/>
                 </b:column>
                 <b:column span="6">
-                    <h:outputText value="#{partyController.party.code}"/>
+                    <h:outputText value="#{selectedParty.party.code}"/>
                 </b:column>
             </b:row>
             <b:row>
@@ -28,7 +28,7 @@
                     <h:outputText value="Votes"/>
                 </b:column>
                 <b:column span="6">
-                    <h:outputText value="#{partyController.party.votes}"/>
+                    <h:outputText value="#{selectedParty.party.votes}"/>
                 </b:column>
             </b:row>
             <b:row>
@@ -36,7 +36,7 @@
                     <h:outputText value="Candidates"/>
                 </b:column>
                 <b:column span="6">
-                    <h:outputText value="#{partyController.party.candidates.size()}"/>
+                    <h:outputText value="#{selectedParty.party.candidates.size()}"/>
                 </b:column>
             </b:row>
             <b:row>
@@ -44,7 +44,7 @@
                     <h:outputText value="Elected"/>
                 </b:column>
                 <b:column span="6">
-                    <h:outputText value="#{partyController.party.elected.size()}"/>
+                    <h:outputText value="#{selectedParty.party.elected.size()}"/>
                 </b:column>
             </b:row>
         </b:container>
@@ -60,10 +60,10 @@
                          pdf="true"
                          print="true"
                          responsive="true"
-                         value="#{partyController.candidates}"
+                         value="#{selectedParty.party.candidates}"
                          var="candidate">
                 <b:dataTableColumn value="#{candidate.name}"/>
-                <b:dataTableColumn value="#{partyController.isCandidateElected(candidate.code)}">
+                <b:dataTableColumn value="#{selectedParty.party.isElected(candidate.code)}">
                     <f:facet name="header">
                         <h:outputText value="Elected"/>
                     </f:facet>
@@ -73,7 +73,7 @@
                         <h:outputText value="District"/>
                     </f:facet>
                 </b:dataTableColumn>
-                <b:dataTableColumn value="#{candidate.constituencyName}">
+                <b:dataTableColumn value="#{candidate.constituencyName} (#{candidate.constituencyCode})">
                     <f:facet name="header">
                         <h:outputText value="Constituency"/>
                     </f:facet>

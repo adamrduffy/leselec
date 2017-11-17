@@ -1,11 +1,8 @@
 package org.adamrduffy.leselec.controller
 
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
-import org.adamrduffy.leselec.controller.model.SelectedParty
-import org.adamrduffy.leselec.domain.Candidate
 import org.adamrduffy.leselec.domain.Constituency
 import org.adamrduffy.leselec.domain.District
-import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.service.DistrictsService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -22,26 +19,13 @@ class PartyController implements Serializable {
     @Inject
     DistrictsService districtsService
     @Inject
-    SelectedParty selectedParty
-    @Inject
     SelectedConstituency selectedConstituency
-
-    Party getParty() {
-        return selectedParty.party
-    }
-
-    List<Candidate> getCandidates() {
-        return selectedParty.party.candidates
-    }
-
-    boolean isCandidateElected(String candidateCode) {
-        return selectedParty.party.isElected(candidateCode)
-    }
 
     String viewConstituency(String districtName, String constituencyCode) {
         LOGGER.info(districtName + " " + constituencyCode)
         District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }
         if (district != null) {
+            selectedConstituency.district = district
             Constituency constituency = district.constituencies.find { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) }
             if (constituency != null) {
                 selectedConstituency.constituency = constituency
