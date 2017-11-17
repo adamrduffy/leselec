@@ -9,6 +9,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 import javax.enterprise.context.ApplicationScoped
+import javax.faces.event.AbortProcessingException
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -25,15 +26,13 @@ class SeatsController implements Serializable {
     @Inject
     SelectedParty selectedParty
 
-    String viewPartyDetails(String partyCode) {
+    void readPartyDetails(String partyCode) {
         LOGGER.info(partyCode + " selected")
         def party = seatsService.read().parties.findResult { party -> partyCode.equalsIgnoreCase(party.code) ? party : null }
         if (party == null) {
-            return "index.html?faces-redirect=true"
-        } else {
-            selectedParty.party = Party.fromJson(party)
-            return "party.html?faces-redirect=true"
+            throw new AbortProcessingException("unable to determine party for " + partyCode)
         }
+        selectedParty.party = Party.fromJson(party)
     }
 
     String getParliamentArchDiagram() {

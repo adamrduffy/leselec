@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
 >
 <ui:composition template="layout.xhtml">
     <ui:define name="title"/>
@@ -47,7 +48,7 @@
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
-                    <b:commandButton value="Party" action="#{seatsController.viewPartyDetails(party.code)}"/>
+                    <b:commandButton value="Party" actionListener="#{seatsController.readPartyDetails(party.code)}" action="'party.html?faces-redirect=true'"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>

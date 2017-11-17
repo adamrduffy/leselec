@@ -10,7 +10,7 @@
     <ui:define name="content">
         <b:navBar>
             <b:navbarLinks>
-                <b:navLink value="Seats" href="index.html"/>
+                <b:navLink value="Home" href="index.html"/>
             </b:navbarLinks>
         </b:navBar>
 
@@ -88,6 +88,7 @@
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
+                    <b:commandButton value="District" action="#{partyController.viewDistrict(candidate.districtName)}"/>
                     <b:commandButton value="Constituency" action="#{partyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}"/>
                 </b:dataTableColumn>
             </b:dataTable>

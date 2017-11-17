@@ -21,6 +21,16 @@ class PartyController implements Serializable {
     @Inject
     SelectedConstituency selectedConstituency
 
+    String viewDistrict(String districtName) {
+        LOGGER.info(districtName)
+        District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }
+        if (district != null) {
+            selectedConstituency.district = district
+            return "district.html?faces-redirect=true"
+        }
+        return "party.html?faces-redirect=true"
+    }
+
     String viewConstituency(String districtName, String constituencyCode) {
         LOGGER.info(districtName + " " + constituencyCode)
         District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }

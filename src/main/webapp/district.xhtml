@@ -23,30 +23,6 @@
                     <h:outputText value="#{selectedConstituency.district.name}"/>
                 </b:column>
             </b:row>
-            <b:row>
-                <b:column span="6">
-                    <h:outputText value="Constituency"/>
-                </b:column>
-                <b:column span="6">
-                    <h:outputText value="#{selectedConstituency.constituency.name}"/>
-                </b:column>
-            </b:row>
-            <b:row>
-                <b:column span="6">
-                    <h:outputText value="By-election"/>
-                </b:column>
-                <b:column span="6">
-                    <h:outputText value="#{selectedConstituency.constituency.byelection}"/>
-                </b:column>
-            </b:row>
-            <b:row>
-                <b:column span="6">
-                    <h:outputText value="Candidates"/>
-                </b:column>
-                <b:column span="6">
-                    <h:outputText value="#{selectedConstituency.constituency.candidates.size()}"/>
-                </b:column>
-            </b:row>
         </b:container>
 
         <h:form>
@@ -60,24 +36,32 @@
                          pdf="true"
                          print="true"
                          responsive="true"
-                         value="#{selectedConstituency.constituency.candidates}"
-                         var="candidate">
-                <b:dataTableColumn value="#{candidate.name}"/>
-                <b:dataTableColumn value="#{candidate.party}"/>
-                <b:dataTableColumn value="#{candidate.votes}"/>
-                <b:dataTableColumn value="#{candidate.share}">
+                         value="#{selectedConstituency.district.constituencies}"
+                         var="constituency">
+                <b:dataTableColumn value="#{constituency.name} (#{constituency.code})">
                     <f:facet name="header">
-                        <h:outputText value="Vote Share"/>
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{constituency.candidates.size()}">
+                    <f:facet name="header">
+                        <h:outputText value="Candidates"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{constituency.byelection}">
+                    <f:facet name="header">
+                        <h:outputText value="By-election"/>
                     </f:facet>
                 </b:dataTableColumn>
                 <b:dataTableColumn>
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
-                    <b:commandButton value="Party" actionListener="#{seatsController.readPartyDetails(candidate.party)}" action="party.html?faces-redirect=true"/>
+                    <b:commandButton value="Constituency" action="#{partyController.viewConstituency(selectedConstituency.district.name, constituency.code)}"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>
+
     </ui:define>
 </ui:composition>
 </html>

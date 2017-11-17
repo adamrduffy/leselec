@@ -33,4 +33,13 @@
         <to>/constituency.html</to>
     </outbound-rule>
 
+    <rule>
+        <from>/district.html</from>
+        <to>/district.jsf</to>
+    </rule>
+    <outbound-rule>
+        <from>/district.jsf</from>
+        <to>/district.html</to>
+    </outbound-rule>
+
 </urlrewrite>
