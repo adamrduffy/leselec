@@ -10,7 +10,7 @@
     <ui:define name="content">
         <b:navBar>
             <b:navbarLinks>
-                <b:navLink value="Seats" href="index.html" iconAwesome="circle"/>
+                <b:navLink value="Seats" href="index.html"/>
             </b:navbarLinks>
         </b:navBar>
 
@@ -77,13 +77,18 @@
                     <f:facet name="header">
                         <h:outputText value="Constituency"/>
                     </f:facet>
-                    <b:navCommandLink value="#{candidate.constituencyName}" action="#{partyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}"/>
                 </b:dataTableColumn>
                 <b:dataTableColumn value="#{candidate.votes}"/>
                 <b:dataTableColumn value="#{candidate.share}">
                     <f:facet name="header">
                         <h:outputText value="Vote Share"/>
                     </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <f:facet name="header">
+                        <h:outputText value=""/>
+                    </f:facet>
+                    <b:commandButton value="Constituency" action="#{partyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>

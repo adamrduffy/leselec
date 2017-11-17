@@ -17,7 +17,7 @@ import javax.inject.Named
 @ApplicationScoped
 @Named("partyController")
 class PartyController implements Serializable {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SeatsController.class)
+    private static final Logger LOGGER = LoggerFactory.getLogger(PartyController.class)
 
     @Inject
     DistrictsService districtsService
@@ -40,9 +40,9 @@ class PartyController implements Serializable {
 
     String viewConstituency(String districtName, String constituencyCode) {
         LOGGER.info(districtName + " " + constituencyCode)
-        District district = districtsService.read().findResult { district -> districtName.equalsIgnoreCase(district.name) ? district : null }
+        District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }
         if (district != null) {
-            Constituency constituency = district.constituencies.findResult { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) ? constituency : null }
+            Constituency constituency = district.constituencies.find { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) }
             if (constituency != null) {
                 selectedConstituency.constituency = constituency
                 return "constituency.html?faces-redirect=true"

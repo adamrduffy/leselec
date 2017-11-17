@@ -10,48 +10,46 @@
         <h:outputText value="#{seatsController.parliamentArchDiagram}" escape="false"/>
 
         <h:form>
-            <b:panel collapsible="false" title="Election">
-                <b:dataTable id="partyTable"
-                             columnVisibility="true"
-                             copy="true"
-                             csv="true"
-                             excel="true"
-                             fixedHeader="true"
-                             paginated="false"
-                             pdf="true"
-                             print="true"
-                             responsive="true"
-                             value="#{seatsController.parties}"
-                             var="party">
+            <b:dataTable id="partyTable"
+                         columnVisibility="true"
+                         copy="true"
+                         csv="true"
+                         excel="true"
+                         fixedHeader="true"
+                         paginated="false"
+                         pdf="true"
+                         print="true"
+                         responsive="true"
+                         value="#{seatsController.parties}"
+                         var="party">
                     <b:dataTableColumn value="#{party.code}">
-                        <f:facet name="header">
-                            <h:outputText value="Party"/>
-                        </f:facet>
-                    </b:dataTableColumn>
-                    <b:dataTableColumn value="#{party.totalSeats}">
-                        <f:facet name="header">
-                            <h:outputText value="Total Seats"/>
-                        </f:facet>
-                    </b:dataTableColumn>
-                    <b:dataTableColumn value="#{party.seats}">
-                        <f:facet name="header">
-                            <h:outputText value="Constituency Seats"/>
-                        </f:facet>
-                    </b:dataTableColumn>
-                    <b:dataTableColumn value="#{party.totalSeats - party.seats}">
-                        <f:facet name="header">
-                            <h:outputText value="PR Seats"/>
-                        </f:facet>
-                    </b:dataTableColumn>
-                    <b:dataTableColumn value="#{party.votes}"/>
-                    <b:dataTableColumn>
-                        <f:facet name="header">
-                            <h:outputText value=""/>
-                        </f:facet>
-                        <b:commandButton value="Party" action="#{seatsController.viewPartyDetails(party.code)}"/>
-                    </b:dataTableColumn>
-                </b:dataTable>
-            </b:panel>
+                    <f:facet name="header">
+                        <h:outputText value="Party"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{party.totalSeats}">
+                    <f:facet name="header">
+                        <h:outputText value="Total Seats"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{party.seats}">
+                    <f:facet name="header">
+                        <h:outputText value="Constituency Seats"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{party.totalSeats - party.seats}">
+                    <f:facet name="header">
+                        <h:outputText value="PR Seats"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{party.votes}"/>
+                <b:dataTableColumn>
+                    <f:facet name="header">
+                        <h:outputText value=""/>
+                    </f:facet>
+                    <b:commandButton value="Party" action="#{seatsController.viewPartyDetails(party.code)}"/>
+                </b:dataTableColumn>
+            </b:dataTable>
         </h:form>
     </ui:define>
 </ui:composition>

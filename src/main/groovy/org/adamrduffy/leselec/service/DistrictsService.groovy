@@ -31,7 +31,9 @@ class DistrictsService {
         LOGGER.info("reading json file")
         ClassPathResource districtsJson = new ClassPathResource("districts.json")
         LOGGER.info("parsing json file and creating objects")
-        districts = parseAllResultFiles(JsonFile.<List<District>> load(districtsJson.inputStream), "24", "26", "27")
+        this.districts = JsonFile.<List<District>> load(districtsJson.inputStream)
+        parseAllResultFiles(districts, "24", "26", "27")
+        LOGGER.info("# districts " + districts.size())
     }
 
     private static void parseAllResultFiles(List<District> districts, String... byelectionConstituencyCodes) {
