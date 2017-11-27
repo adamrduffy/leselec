@@ -35,7 +35,7 @@ class SeatsController implements Serializable {
             }
         }
 
-        return ParliamentArchDiagram.generate(parliamentarians, 120)
+        return ParliamentArchDiagram.generate(parliamentarians, 120, [vacantSeatStrokeColour: '#808080'])
     }
 
     List<Party> getParties() {

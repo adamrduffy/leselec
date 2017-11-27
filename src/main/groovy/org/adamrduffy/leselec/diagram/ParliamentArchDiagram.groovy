@@ -35,6 +35,7 @@ class ParliamentArchDiagram {
 
         double radius = 0.4 / rows
         List positionsList = generateSeatPositionsInDiagram(rows, delegates, radius)
+        assert positionsList.size() == delegates : "# positions (" + positionsList.size() + ") != delegates (" + delegates + ")"
 
         def writer = new StringWriter()
         def xml = new MarkupBuilder(writer)
@@ -85,7 +86,7 @@ class ParliamentArchDiagram {
         }
     }
 
-    static void generatePartySeatGroup(MarkupBuilder xml, String party, List<String> parliamentarians,
+    private static void generatePartySeatGroup(MarkupBuilder xml, String party, List<String> parliamentarians,
                                          int offset, int seats = parliamentarians.size(), double radius,
                                          List positionList, String fillColour, String strokeColour) {
         xml.g(id: "$party", style: "fill:$fillColour; stroke:$strokeColour; stroke-width: 2;") {
@@ -94,17 +95,17 @@ class ParliamentArchDiagram {
                 def y = 100.0 * (1.75 - (positionList[counter][2] as double)) + 5.0
                 def r = radius * 100.0
 
-                def name = party == null ? "Vacant" : "PR - $party"
                 def candidate = parliamentarians == null || parliamentarians.empty ?
                         null :
                         parliamentarians[offset >= counter ? offset - counter : counter]
+                def name = party == null ? "Vacant" : "PR - $party"
                 def title = candidate == null ? name : "$candidate - $party"
                 generatePartySeat(xml, title, x, y, r)
             }
         }
     }
 
-    static void generatePartySeat(def xml, String name, def x, def y, def r) {
+    private static void generatePartySeat(def xml, String name, def x, def y, def r) {
         xml.circle(cx: x, cy: y, r: r) {
             title("$name")
         }
