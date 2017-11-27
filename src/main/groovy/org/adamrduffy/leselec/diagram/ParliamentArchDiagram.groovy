@@ -14,7 +14,17 @@ class ParliamentArchDiagram {
                                  20323, 20888, 21468, 22050, 22645, 23243, 23853, 24467, 25094, 25723, 26364, 27011,
                                  27667, 28329, 29001, 29679, 30367, 31061]
 
-    static String generate(List<Parliamentarian> parliamentarians, int delegates) {
+    static String generate(List<Parliamentarian> parliamentarians, int delegates, Map config = [:]) {
+        String defaultPartyColour = config.get('defaultPartyColour', '#808080') as String
+        int width = config.get('width', 360) as int
+        int height = config.get('height', 185) as int
+        String vacantSeatFillColour = config.get('vacantSeatFillColour', '#FFFFFF') as String
+        String vacantSeatStrokeColour = config.get('vacantSeatStrokeColour', '#000000') as String
+        int labelPositionX = config.get('labelPositionX', 175) as int
+        int labelPositionY = config.get('labelPositionY', 175) as int
+        String labelStyle = config.get('labelStyle', 'font-size:36px; font-weight:bold; text-align:center; text-anchor:middle; font-family:sans-serif') as String
+        String label = config.get('label', "$delegates") as String
+
         List<String> parties = parliamentarians.collect { parliamentarian -> parliamentarian.party }.unique()
 
         int rows = 0
@@ -29,19 +39,20 @@ class ParliamentArchDiagram {
         def writer = new StringWriter()
         def xml = new MarkupBuilder(writer)
 
-        xml.svg(xmlns: 'http://www.w3.org/2000/svg', 'xmlns:svg': 'http://www.w3.org/2000/svg', version: '1.1', width: '360', height: '185') {
+        xml.svg(xmlns: 'http://www.w3.org/2000/svg', 'xmlns:svg': 'http://www.w3.org/2000/svg', version: '1.1', width: "$width", height: "$height") {
             g {
-                text(x: '175', y: '175', style: 'font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:sans-serif', delegates)
+                text(x: "$labelPositionX", y: "$labelPositionY", style: "$labelStyle", "$label")
                 int totalCounter = 0
                 for (party in parties) {
                     String partyColour = parliamentarians.findResult { parliamentarian -> party.equalsIgnoreCase(parliamentarian.party) ? parliamentarian.partyColour : null }
-                    String fillColour = partyColour == null ? "#808080" : partyColour
+                    String fillColour = partyColour == null ? "$defaultPartyColour" : partyColour
                     List<Parliamentarian> parliamentariansInParty = parliamentarians.findAll { parliamentarian -> party.equalsIgnoreCase(parliamentarian.party) }
                     List<String> parliamentarianNames = parliamentariansInParty.collect{ parliamentarian -> parliamentarian.name }
                     generatePartySeatGroup(xml, party, parliamentarianNames, totalCounter, parliamentariansInParty.size(), radius, positionsList, fillColour, fillColour)
                     totalCounter += parliamentariansInParty.size()
                 }
-                generatePartySeatGroup(xml, null, null, totalCounter, delegates - totalCounter, radius, positionsList, "#FFFFFF", "#000000")
+                int vacantSeats = delegates - totalCounter
+                generatePartySeatGroup(xml, null, null, totalCounter, vacantSeats, radius, positionsList, "$vacantSeatFillColour", "$vacantSeatStrokeColour")
             }
         }
         return writer.toString()
