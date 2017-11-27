@@ -1,10 +1,6 @@
 package org.adamrduffy.leselec.diagram
 
-import org.adamrduffy.leselec.domain.Candidate
-import org.adamrduffy.leselec.domain.Party
-import org.adamrduffy.leselec.domain.PartyColour
-import org.adamrduffy.leselec.json.JsonFile
-import org.apache.commons.lang3.StringUtils
+import groovy.xml.MarkupBuilder
 
 /**
  * Adapted from https://github.com/slashme/parliamentdiagram/blob/master/newarch.py
@@ -18,8 +14,8 @@ class ParliamentArchDiagram {
                                  20323, 20888, 21468, 22050, 22645, 23243, 23853, 24467, 25094, 25723, 26364, 27011,
                                  27667, 28329, 29001, 29679, 30367, 31061]
 
-    static String generate(List<Party> parties, List<PartyColour> partyColours, int delegates = 120) {
-        List<Party> electedParties = parties.findAll { party -> party.totalSeats > 0 }
+    static String generate(List<Parliamentarian> parliamentarians, int delegates) {
+        List<String> parties = parliamentarians.collect { parliamentarian -> parliamentarian.party }.unique()
 
         int rows = 0
         for (; rows < TOTALS.length && delegates > TOTALS[rows]; rows++) {
@@ -28,89 +24,78 @@ class ParliamentArchDiagram {
         rows += 1
 
         double radius = 0.4 / rows
-        List poslist = generateSeatPositionsInDiagram(rows, delegates, radius)
+        List positionsList = generateSeatPositionsInDiagram(rows, delegates, radius)
 
-        StringBuffer stringBuffer = new StringBuffer()
-        stringBuffer << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
-        stringBuffer << "<svg xmlns:svg=\"http://www.w3.org/2000/svg\"\n"
-        stringBuffer << "     xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"\n"
-        stringBuffer << "     width=\"360\" height=\"185\">\n"
-        stringBuffer << "<g>\n"
-        stringBuffer << "    <text x=\"175\" y=\"175\" style=\"font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:sans-serif\">$delegates</text>\n"
+        def writer = new StringWriter()
+        def xml = new MarkupBuilder(writer)
 
-        int totalCounter = 0
-        for (party in electedParties) {
-            def partyColour = partyColours.find { partyColour -> StringUtils.equalsIgnoreCase(party.code, partyColour.code) }
-            String fillColour = partyColour == null ? "#808080" : partyColour.colour
-            stringBuffer << generatePartySeatGroup(party.code, fillColour, fillColour, party.elected, totalCounter, party.totalSeats, radius, poslist)
-            totalCounter += party.totalSeats
+        xml.svg(xmlns: 'http://www.w3.org/2000/svg', 'xmlns:svg': 'http://www.w3.org/2000/svg', version: '1.1', width: '360', height: '185') {
+            g {
+                text(x: '175', y: '175', style: 'font-size:36px;font-weight:bold;text-align:center;text-anchor:middle;font-family:sans-serif', delegates)
+                int totalCounter = 0
+                for (party in parties) {
+                    String partyColour = parliamentarians.findResult { parliamentarian -> party.equalsIgnoreCase(parliamentarian.party) ? parliamentarian.partyColour : null }
+                    String fillColour = partyColour == null ? "#808080" : partyColour
+                    List<Parliamentarian> parliamentariansInParty = parliamentarians.findAll { parliamentarian -> party.equalsIgnoreCase(parliamentarian.party) }
+                    List<String> parliamentarianNames = parliamentariansInParty.collect{ parliamentarian -> parliamentarian.name }
+                    generatePartySeatGroup(xml, party, parliamentarianNames, totalCounter, parliamentariansInParty.size(), radius, positionsList, fillColour, fillColour)
+                    totalCounter += parliamentariansInParty.size()
+                }
+                generatePartySeatGroup(xml, null, null, totalCounter, delegates - totalCounter, radius, positionsList, "#FFFFFF", "#000000")
+            }
         }
-        stringBuffer << generatePartySeatGroup(null, "#FFFFFF", "#000000", new ArrayList<Candidate>(), totalCounter, delegates - totalCounter, radius, poslist)
-
-        stringBuffer << "</g>\n"
-        stringBuffer << "</svg>\n"
-
-        return stringBuffer.toString()
+        return writer.toString()
     }
 
     private static List generateSeatPositionsInDiagram(int rows, int delegates, double radius) {
-        def poslist = []
+        def positionList = []
         for (int i in 1..rows - 1) {
-            int J = delegates / TOTALS[rows - 1] * Math.PI / (2 * Math.asin(2.0 / (3.0 * rows + 4.0 * i - 2.0))) as int
+            int seatsInRow = delegates / TOTALS[rows - 1] * Math.PI / (2 * Math.asin(2.0 / (3.0 * rows + 4.0 * i - 2.0))) as int
             double R = (3.0 * rows + 4.0 * i - 2.0) / (4.0 * rows)
-            generateSeatPositionsInRow(J, poslist, R, radius)
+            generateSeatPositionsInRow(seatsInRow, positionList, R, radius)
         }
 
         // the last row with the left over seats
-        int J = delegates - poslist.size()
+        int seatsInRow = delegates - positionList.size()
         def R = (7.0 * rows - 2.0) / (4.0 * rows)
-        generateSeatPositionsInRow(J, poslist, R, radius)
-        // sort by position so that party seats are grouped together
-        return poslist.sort { a, b -> a[0] <=> b[0] }.reverse()
+        generateSeatPositionsInRow(seatsInRow, positionList, R, radius)
+        // sort by position so that party seats can be grouped together
+        return positionList.sort { a, b -> a[0] <=> b[0] }.reverse()
     }
 
-    private static void generateSeatPositionsInRow(int J, List poslist, double R, double radius) {
-        if (J == 1) {
-            poslist << ([Math.PI / 2.0, 1.75 * R, R])
+    private static void generateSeatPositionsInRow(int seatsInRow, List positionList, double R, double radius) {
+        if (seatsInRow == 1) {
+            positionList << ([Math.PI / 2.0, 1.75 * R, R])
         } else {
-            for (int j in 0..J - 1) {
-                double angle = j * (Math.PI - 2.0 * Math.sin(radius / R)) / (J - 1.0) + Math.sin(radius / R)
-                poslist << ([angle, R * Math.cos(angle) + 1.75, R * Math.sin(angle)])
+            for (int j in 0..seatsInRow - 1) {
+                double angle = j * (Math.PI - 2.0 * Math.sin(radius / R)) / (seatsInRow - 1.0) + Math.sin(radius / R)
+                positionList << ([angle, R * Math.cos(angle) + 1.75, R * Math.sin(angle)])
             }
         }
     }
 
-    static String generatePartySeatGroup(String code, String fillColour, String strokeColour,
-                                         List<Candidate> candidates, int totalCounter, int totalSeats, double radius,
-                                         def poslist) {
-        StringBuffer stringBuffer = new StringBuffer()
-        stringBuffer << "    <g style=\"fill:$fillColour; stroke:$strokeColour; stroke-width: 2;\" id=\"$code\">\n"
-        for (int counter = totalCounter; counter < totalCounter + totalSeats; counter++) {
-            def x = poslist[counter][1] * 100.0 + 5.0
-            def y = 100.0 * (1.75 - (poslist[counter][2] as double)) + 5.0
-            def r = radius * 100.0
-            stringBuffer << sprintf("        <circle cx=\"%.2f\" cy=\"%.2f\" r=\"%.2f\">\n", x, y, r)
-            def name = code == null ? "Vacant" : "PR - $code"
-            if (candidates.empty) {
-                stringBuffer << "            <title>$name</title>\n"
-            } else {
-                def candidate = candidates[totalCounter >= counter ? totalCounter - counter : counter]
-                if (candidate == null) {
-                    stringBuffer << "            <title>$name</title>\n"
-                } else {
-                    stringBuffer << "            <title>$candidate.name - $code</title>\n"
-                }
+    static void generatePartySeatGroup(MarkupBuilder xml, String party, List<String> parliamentarians,
+                                         int offset, int seats = parliamentarians.size(), double radius,
+                                         List positionList, String fillColour, String strokeColour) {
+        xml.g(id: "$party", style: "fill:$fillColour; stroke:$strokeColour; stroke-width: 2;") {
+            for (int counter = offset; counter < offset + seats; counter++) {
+                def x = positionList[counter][1] * 100.0 + 5.0
+                def y = 100.0 * (1.75 - (positionList[counter][2] as double)) + 5.0
+                def r = radius * 100.0
+
+                def name = party == null ? "Vacant" : "PR - $party"
+                def candidate = parliamentarians == null || parliamentarians.empty ?
+                        null :
+                        parliamentarians[offset >= counter ? offset - counter : counter]
+                def title = candidate == null ? name : "$candidate - $party"
+                generatePartySeat(xml, title, x, y, r)
             }
-            stringBuffer << sprintf("        </circle>\n")
         }
-        stringBuffer << "    </g>\n"
-        return stringBuffer.toString()
     }
 
-    static void main(String[] args) {
-        def colours = JsonFile.load("party.colours.json")
-        def seats = JsonFile.load("seats.json")
-        def svg = new File("parliament.svg")
-        svg.write generate(seats.parties as List<Party>, colours as List<PartyColour>)
+    static void generatePartySeat(def xml, String name, def x, def y, def r) {
+        xml.circle(cx: x, cy: y, r: r) {
+            title("$name")
+        }
     }
 }
