@@ -36,5 +36,11 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
+processResources {
+    from ('results/') {
+        into 'results'
+    }
+}
+
 task stage(dependsOn: ['clean', 'build'])
 build.mustRunAfter clean
