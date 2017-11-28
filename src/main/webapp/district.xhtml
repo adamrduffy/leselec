@@ -48,7 +48,7 @@
                         <h:outputText value="Candidates"/>
                     </f:facet>
                 </b:dataTableColumn>
-                <b:dataTableColumn value="#{constituency.byelection}">
+                <b:dataTableColumn value="#{constituency.byelection ? 'true' : ''}">
                     <f:facet name="header">
                         <h:outputText value="By-election"/>
                     </f:facet>
