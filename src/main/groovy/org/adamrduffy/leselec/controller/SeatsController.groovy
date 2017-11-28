@@ -1,11 +1,11 @@
 package org.adamrduffy.leselec.controller
 
-import org.adamrduffy.leselec.diagram.ParliamentArchDiagram
-import org.adamrduffy.leselec.diagram.Parliamentarian
 import org.adamrduffy.leselec.domain.Party
 import org.adamrduffy.leselec.domain.PartyColour
 import org.adamrduffy.leselec.service.PartyColoursService
 import org.adamrduffy.leselec.service.SeatsService
+import org.adamrduffy.parly.ParliamentArchDiagram
+import org.adamrduffy.parly.Parliamentarian
 import org.apache.commons.lang3.StringUtils
 
 import javax.enterprise.context.ApplicationScoped
@@ -35,7 +35,8 @@ class SeatsController implements Serializable {
             }
         }
 
-        return ParliamentArchDiagram.generate(parliamentarians, 120, [vacantSeatStrokeColour: '#808080'])
+        def seatLabel = { p -> p == null || p.party == null ? "Vacant" : (p.name == null ? "PR - $p.party" : "$p.name - $p.party") }
+        return ParliamentArchDiagram.generate(parliamentarians, 120, [vacantSeatStrokeColour: '#808080'], seatLabel)
     }
 
     List<Party> getParties() {
