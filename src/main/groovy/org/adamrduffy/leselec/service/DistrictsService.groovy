@@ -36,11 +36,11 @@ class DistrictsService {
         LOGGER.info("# districts " + districts.size())
     }
 
-    private static void parseAllResultFiles(List<District> districts, String... byelectionConstituencyCodes) {
+    private static void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
         districts.each { district ->
             district.constituencies = new ArrayList<>()
             district.results.each { result ->
-                district.constituencies.add(parseResultFile(new File(result.file), byelectionConstituencyCodes))
+                district.constituencies.add(parseResultFile(new File(result.file), byElectionConstituencyCodes))
             }
         }
     }

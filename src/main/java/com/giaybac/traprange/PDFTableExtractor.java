@@ -64,7 +64,7 @@ public class PDFTableExtractor {
         try {
             return this.setSource(new FileInputStream(file));
         } catch (FileNotFoundException ex) {
-            throw new RuntimeException("Invalid pdf file", ex);
+            throw new RuntimeException("Invalid pdf file " + file.getName(), ex);
         }
     }
 
