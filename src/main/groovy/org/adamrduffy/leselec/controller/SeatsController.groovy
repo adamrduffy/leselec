@@ -1,11 +1,11 @@
 package org.adamrduffy.leselec.controller
 
-import org.adamrduffy.leselec.domain.Party
+import org.adamrduffy.parly.Party
 import org.adamrduffy.leselec.domain.PartyColour
 import org.adamrduffy.leselec.service.PartyColoursService
 import org.adamrduffy.leselec.service.SeatsService
-import org.adamrduffy.parly.ParliamentArchDiagram
-import org.adamrduffy.parly.Parliamentarian
+import org.adamrduffy.parly.diagram.ParliamentArchDiagram
+import org.adamrduffy.parly.diagram.Parliamentarian
 import org.apache.commons.lang3.StringUtils
 
 import javax.enterprise.context.ApplicationScoped
@@ -27,10 +27,11 @@ class SeatsController implements Serializable {
         List<Parliamentarian> parliamentarians = new LinkedList<>()
         parties.each { party ->
             def partyColour = partyColours.find { partyColour -> StringUtils.equalsIgnoreCase(party.code, partyColour.code) }
-            party.elected.each { delegate ->
+            def elected = party.candidates.findAll { candidate -> candidate.elected }
+            elected.each { delegate ->
                 parliamentarians.add(new Parliamentarian(name: delegate.name, party: party.code, partyColour: partyColour?.colour))
             }
-            for (int seat = party.elected.size(); seat < party.totalSeats; seat++) {
+            for (int seat = elected.size(); seat < party.totalSeats; seat++) {
                 parliamentarians.add(new Parliamentarian(party: party.code, partyColour: partyColour?.colour))
             }
         }

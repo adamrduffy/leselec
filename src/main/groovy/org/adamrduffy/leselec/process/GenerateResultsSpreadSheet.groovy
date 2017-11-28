@@ -1,6 +1,6 @@
 package org.adamrduffy.leselec.process
 
-import org.adamrduffy.leselec.domain.Constituency
+import org.adamrduffy.parly.Constituency
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 

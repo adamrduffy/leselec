@@ -2,7 +2,7 @@ package org.adamrduffy.leselec.controller
 
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
 import org.adamrduffy.leselec.controller.model.SelectedParty
-import org.adamrduffy.leselec.domain.Party
+import org.adamrduffy.parly.Party
 import org.adamrduffy.leselec.service.DistrictsService
 import org.adamrduffy.leselec.service.SeatsService
 import org.slf4j.Logger
@@ -34,6 +34,12 @@ class PartyController implements Serializable {
         if (party == null) {
             throw new AbortProcessingException("unable to determine party for " + partyCode)
         }
-        selectedParty.party = Party.fromJson(party)
+        selectedParty.party = fromJson(party)
+    }
+
+    static Party fromJson(json) {
+        return new Party(code: json.code, votes: json.votes, candidates: json.candidates,
+                voteShare: json.voteShare, partyQuota: json.partyQuota,
+                remainderPrSeats: json.remainderPrSeats)
     }
 }

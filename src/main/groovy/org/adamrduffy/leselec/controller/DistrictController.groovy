@@ -3,6 +3,7 @@ package org.adamrduffy.leselec.controller
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.service.DistrictsService
+import org.adamrduffy.parly.Constituency
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -21,6 +22,17 @@ class DistrictController implements Serializable {
 
     @Inject
     SelectedConstituency selectedConstituency
+
+    District getDistrict(String constituencyCode) {
+        List<District> districts = districtsService.read()
+        return districts.find { district -> district.constituencies.find { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) } }
+    }
+
+    Constituency getConstituency(String candidateCode) {
+        List<District> districts = districtsService.read()
+        List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>
+        return constituencies.find { constituency -> constituency.candidates.find { candidate -> candidateCode.equalsIgnoreCase(candidate.code) } }
+    }
 
     void viewDistrict(String districtName) {
         LOGGER.info(districtName)

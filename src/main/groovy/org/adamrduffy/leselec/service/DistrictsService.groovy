@@ -1,8 +1,8 @@
 package org.adamrduffy.leselec.service
 
 import com.giaybac.traprange.PDFTableExtractor
-import org.adamrduffy.leselec.domain.Candidate
-import org.adamrduffy.leselec.domain.Constituency
+import org.adamrduffy.parly.Candidate
+import org.adamrduffy.parly.Constituency
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 import org.apache.commons.lang3.StringUtils

@@ -1,6 +1,6 @@
 package org.adamrduffy.leselec.service
 
-import org.adamrduffy.leselec.domain.Seats
+import org.adamrduffy.parly.Seats
 import org.adamrduffy.leselec.json.JsonFile
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

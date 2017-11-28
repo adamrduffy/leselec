@@ -44,7 +44,7 @@
                     <h:outputText value="Elected"/>
                 </b:column>
                 <b:column span="6">
-                    <h:outputText value="#{selectedParty.party.elected.size()}"/>
+                    <h:outputText value="#{selectedParty.party.seats}"/>
                 </b:column>
             </b:row>
         </b:container>
@@ -62,18 +62,21 @@
                          responsive="true"
                          value="#{selectedParty.party.candidates}"
                          var="candidate">
+                <ui:param name="constituency" value="#{districtController.getConstituency(candidate.code)}"/>
+                <ui:param name="district" value="#{districtController.getDistrict(constituency.code)}"/>
+
                 <b:dataTableColumn value="#{candidate.name}"/>
-                <b:dataTableColumn value="#{selectedParty.party.isElected(candidate.code)}">
+                <b:dataTableColumn value="#{candidate.elected} #{candidate.elected and !candidate.seated ? '*' : ''}">
                     <f:facet name="header">
                         <h:outputText value="Elected"/>
                     </f:facet>
                 </b:dataTableColumn>
-                <b:dataTableColumn value="#{candidate.districtName}">
+                <b:dataTableColumn value="#{district.name}">
                     <f:facet name="header">
                         <h:outputText value="District"/>
                     </f:facet>
                 </b:dataTableColumn>
-                <b:dataTableColumn value="#{candidate.constituencyName} (#{candidate.constituencyCode})">
+                <b:dataTableColumn value="#{constituency.name} (#{constituency.code})">
                     <f:facet name="header">
                         <h:outputText value="Constituency"/>
                     </f:facet>
@@ -88,8 +91,8 @@
                     <f:facet name="header">
                         <h:outputText value=""/>
                     </f:facet>
-                    <b:commandButton value="District" actionListener="#{districtController.viewDistrict(candidate.districtName)}" action="district.html?faces-redirect=true"/>
-                    <b:commandButton value="Constituency" actionListener="#{constituencyController.viewConstituency(candidate.districtName, candidate.constituencyCode)}" action="constituency.html?faces-redirect=true"/>
+                    <b:commandButton value="District" actionListener="#{districtController.viewDistrict(district.name)}" action="district.html?faces-redirect=true"/>
+                    <b:commandButton value="Constituency" actionListener="#{constituencyController.viewConstituency(district.name, constituency.code)}" action="constituency.html?faces-redirect=true"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>

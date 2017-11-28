@@ -1,7 +1,7 @@
 package org.adamrduffy.leselec
 
-import org.adamrduffy.leselec.domain.Candidate
-import org.adamrduffy.leselec.domain.Constituency
+import org.adamrduffy.parly.Candidate
+import org.adamrduffy.parly.Constituency
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 import org.junit.Test
