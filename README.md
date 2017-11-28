@@ -10,3 +10,6 @@ http://www.electionguide.org/elections/id/2809/
 taken from here under MIT licence
 
 https://github.com/thoqbk/traprange
+
+* Postgres JDBC URI
+postgres://postgres:postgres@localhost:5432/leselec
