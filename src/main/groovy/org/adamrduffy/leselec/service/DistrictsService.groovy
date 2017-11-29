@@ -46,12 +46,24 @@ class DistrictsService {
         this.districts = JsonFile.<List<District>> load(districtsJson.inputStream)
         parseAllResultFiles(districts, "24", "26", "27")
         LOGGER.info("# districts " + districts.size())
+        LOGGER.info("writing to database starting...")
         districts.each { district ->
-            districtDao.save(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount))
+            List<ConstituencyEntity> constituencyEntities = new LinkedList<>()
+            district.constituencies.each { constituency ->
+                List<CandidateEntity> candidateEntities = new LinkedList<>()
+                constituency.candidates.each { candidate ->
+                    candidateEntities.add(new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated))
+                }
+                candidateService.saveAll(candidateEntities)
+                constituencyEntities.add(new ConstituencyEntity(code: constituency.code, name: constituency.name, byElection: constituency.byelection, candidates: candidateEntities))
+            }
+            constituencyService.saveAll(constituencyEntities)
+            districtDao.save(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
         }
+        LOGGER.info("writing to database complete")
     }
 
-    private void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
+    private static void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
         districts.each { district ->
             district.constituencies = new ArrayList<>()
             district.results.each { result ->
@@ -60,13 +72,12 @@ class DistrictsService {
         }
     }
 
-    private Constituency parseResultFile(File file, String... byelectionConstituencyCodes) {
+    private static Constituency parseResultFile(File file, String... byElectionConstituencyCodes) {
         PDFTableExtractor extractor = new PDFTableExtractor()
         def tables = extractor.setSource(file).extract()
         String code = null
         String name = null
         List<Candidate> candidates = new ArrayList<>()
-        List<CandidateEntity> candidateEntities = new ArrayList<>()
         tables.each { table ->
             table.rows.each { row ->
                 def match = (row.toString().toUpperCase() =~ /CONSTITUENCY:(.*?)NO.(.*)/)
@@ -84,14 +95,10 @@ class DistrictsService {
                             votes: NumberUtils.toInt(StringUtils.trim(result[4] as String)),
                             share: NumberUtils.toFloat(StringUtils.trim(result[5] as String))
                     )
-                    def candidateEntity = new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party)
-                    candidateService.save(candidateEntity)
-                    candidateEntities.add(candidateEntity)
                     candidates.add(candidate)
                 }
             }
         }
-        constituencyService.save(new ConstituencyEntity(code: code, name: name, byElection: byelectionConstituencyCodes.contains(code), candidates: candidateEntities))
-        return new Constituency(code: code, name: name, candidates: candidates, byelection: byelectionConstituencyCodes.contains(code))
+        return new Constituency(code: code, name: name, candidates: candidates, byelection: byElectionConstituencyCodes.contains(code))
     }
 }

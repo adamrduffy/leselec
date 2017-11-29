@@ -13,7 +13,7 @@ class CandidateService {
     @Inject
     CandidateDao candidateDao
 
-    void save(CandidateEntity candidateEntity) {
-        candidateDao.save(candidateEntity)
+    void saveAll(List<CandidateEntity> candidateEntities) {
+        candidateDao.save(candidateEntities)
     }
 }

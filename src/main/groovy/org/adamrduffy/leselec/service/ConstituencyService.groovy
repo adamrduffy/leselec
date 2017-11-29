@@ -13,7 +13,7 @@ class ConstituencyService {
     @Inject
     ConstituencyDao constituencyDao
 
-    void save(ConstituencyEntity constituencyEntity) {
-        constituencyDao.save(constituencyEntity)
+    void saveAll(List<ConstituencyEntity> constituencyEntities) {
+        constituencyDao.save(constituencyEntities)
     }
 }
