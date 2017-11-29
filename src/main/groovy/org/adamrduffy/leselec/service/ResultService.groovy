@@ -2,11 +2,10 @@ package org.adamrduffy.leselec.service
 
 import com.giaybac.traprange.PDFTableExtractor
 import org.adamrduffy.leselec.dao.CandidateEntity
-import org.adamrduffy.leselec.dao.ConstituencyEntity
-import org.adamrduffy.parly.Candidate
-import org.adamrduffy.parly.Constituency
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
+import org.adamrduffy.parly.Candidate
+import org.adamrduffy.parly.Constituency
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 import org.slf4j.Logger
@@ -20,26 +19,18 @@ import javax.inject.Named
 
 @ApplicationScoped
 @Named
-class DistrictsService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DistrictsService.class)
-
-    private List<District> districts
+class ResultService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ResultService.class)
 
     @Inject
     CandidateService candidateService
-    @Inject
-    ConstituencyService constituencyService
-
-    List<District> read() {
-        return districts
-    }
 
     @PostConstruct
     void load() {
         LOGGER.info("reading json file")
         ClassPathResource districtsJson = new ClassPathResource("districts.json")
         LOGGER.info("parsing json file and creating objects")
-        this.districts = JsonFile.<List<District>> load(districtsJson.inputStream)
+        List<District> districts = JsonFile.<List<District>> load(districtsJson.inputStream)
         parseAllResultFiles(districts, "24", "26", "27")
         LOGGER.info("# districts " + districts.size())
     }
@@ -53,13 +44,12 @@ class DistrictsService {
         }
     }
 
-    private Constituency parseResultFile(File file, String... byelectionConstituencyCodes) {
+    private Constituency parseResultFile(File file, String... byElectionConstituencyCodes) {
         PDFTableExtractor extractor = new PDFTableExtractor()
         def tables = extractor.setSource(file).extract()
         String code = null
         String name = null
         List<Candidate> candidates = new ArrayList<>()
-        List<CandidateEntity> candidateEntities = new ArrayList<>()
         tables.each { table ->
             table.rows.each { row ->
                 def match = (row.toString().toUpperCase() =~ /CONSTITUENCY:(.*?)NO.(.*)/)
@@ -77,14 +67,11 @@ class DistrictsService {
                             votes: NumberUtils.toInt(StringUtils.trim(result[4] as String)),
                             share: NumberUtils.toFloat(StringUtils.trim(result[5] as String))
                     )
-                    def candidateEntity = new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party)
-                    candidateService.save(candidateEntity)
-                    candidateEntities.add(candidateEntity)
+                    candidateService.save(new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share))
                     candidates.add(candidate)
                 }
             }
         }
-        constituencyService.save(new ConstituencyEntity(code: code, name: name, byElection: byelectionConstituencyCodes.contains(code), candidates: candidateEntities))
-        return new Constituency(code: code, name: name, candidates: candidates, byelection: byelectionConstituencyCodes.contains(code))
+        return new Constituency(code: code, name: name, candidates: candidates, byelection: byElectionConstituencyCodes.contains(code))
     }
 }

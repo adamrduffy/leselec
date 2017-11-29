@@ -7,6 +7,6 @@ import javax.inject.Named
 
 @ApplicationScoped
 @Named
-interface CandidateDao extends CrudRepository<CandidateEntity, String> {
+interface ConstituencyDao extends CrudRepository<ConstituencyEntity, String> {
     // nothing to be done here
 }

@@ -18,4 +18,12 @@ class CandidateEntity {
     String name
     @Column(name = "LEC_PARTY")
     String party
+    @Column(name = "LEC_VOTES")
+    Integer votes
+    @Column(name = "LEC_SHARE")
+    Float share
+    @Column(name = "LEC_ELECTED")
+    Boolean elected
+    @Column(name = "LEC_SEATED")
+    Boolean seated
 }
