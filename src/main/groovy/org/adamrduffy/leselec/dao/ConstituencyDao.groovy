@@ -1,12 +1,9 @@
 package org.adamrduffy.leselec.dao
 
-import org.springframework.data.repository.CrudRepository
+interface ConstituencyDao {
+    void saveOrUpdateAll(List<ConstituencyEntity> constituencyEntities)
 
-import javax.enterprise.context.ApplicationScoped
-import javax.inject.Named
+    void saveOrUpdate(ConstituencyEntity constituencyEntity)
 
-@ApplicationScoped
-@Named
-interface ConstituencyDao extends CrudRepository<ConstituencyEntity, String> {
-    // nothing to be done here
+    ConstituencyEntity find(String constituencyCode)
 }

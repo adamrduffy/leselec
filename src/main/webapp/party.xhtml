@@ -92,7 +92,7 @@
                         <h:outputText value=""/>
                     </f:facet>
                     <b:commandButton value="District" actionListener="#{districtController.viewDistrict(district.name)}" action="district.html?faces-redirect=true"/>
-                    <b:commandButton value="Constituency" actionListener="#{constituencyController.viewConstituency(district.name, constituency.code)}" action="constituency.html?faces-redirect=true"/>
+                    <b:commandButton value="Constituency" actionListener="#{constituencyController.viewConstituency(constituency.code)}" action="constituency.html?faces-redirect=true"/>
                 </b:dataTableColumn>
             </b:dataTable>
         </h:form>
