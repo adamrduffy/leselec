@@ -1,6 +1,7 @@
 package org.adamrduffy.leselec.service
 
 import com.giaybac.traprange.PDFTableExtractor
+import org.adamrduffy.leselec.dao.CandidateEntity
 import org.adamrduffy.parly.Candidate
 import org.adamrduffy.parly.Constituency
 import org.adamrduffy.leselec.domain.District
@@ -13,6 +14,7 @@ import org.springframework.core.io.ClassPathResource
 
 import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
+import javax.inject.Inject
 import javax.inject.Named
 
 @ApplicationScoped
@@ -21,6 +23,9 @@ class DistrictsService {
     private static final Logger LOGGER = LoggerFactory.getLogger(DistrictsService.class)
 
     private List<District> districts
+
+    @Inject
+    CandidateService candidateService
 
     List<District> read() {
         return districts
@@ -36,7 +41,7 @@ class DistrictsService {
         LOGGER.info("# districts " + districts.size())
     }
 
-    private static void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
+    private void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
         districts.each { district ->
             district.constituencies = new ArrayList<>()
             district.results.each { result ->
@@ -45,7 +50,7 @@ class DistrictsService {
         }
     }
 
-    private static Constituency parseResultFile(File file, String... byelectionConstituencyCodes) {
+    private Constituency parseResultFile(File file, String... byelectionConstituencyCodes) {
         PDFTableExtractor extractor = new PDFTableExtractor()
         def tables = extractor.setSource(file).extract()
         String code = null
@@ -68,6 +73,7 @@ class DistrictsService {
                             votes: NumberUtils.toInt(StringUtils.trim(result[4] as String)),
                             share: NumberUtils.toFloat(StringUtils.trim(result[5] as String))
                     )
+                    candidateService.save(new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party))
                     candidates.add(candidate)
                 }
             }

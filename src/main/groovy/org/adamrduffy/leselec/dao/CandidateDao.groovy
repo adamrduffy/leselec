@@ -1,12 +1,12 @@
 package org.adamrduffy.leselec.dao
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Repository
+import org.springframework.data.repository.CrudRepository
 
-import javax.sql.DataSource
+import javax.enterprise.context.ApplicationScoped
+import javax.inject.Named
 
-@Repository
-class CandidateDao {
-    @Autowired
-    private DataSource dataSource
+@ApplicationScoped
+@Named
+interface CandidateDao extends CrudRepository<CandidateEntity, String> {
+
 }
