@@ -1,12 +1,7 @@
 package org.adamrduffy.leselec.dao
 
-import org.springframework.data.repository.CrudRepository
+interface CandidateDao {
+    void saveOrUpdateAll(List<CandidateEntity> candidateEntities);
 
-import javax.enterprise.context.ApplicationScoped
-import javax.inject.Named
-
-@ApplicationScoped
-@Named
-interface CandidateDao extends CrudRepository<CandidateEntity, String> {
-    // nothing to be done here
+    void saveOrUpdate(CandidateEntity candidateEntity);
 }

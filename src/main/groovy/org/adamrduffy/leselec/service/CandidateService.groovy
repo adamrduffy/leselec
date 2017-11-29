@@ -14,6 +14,6 @@ class CandidateService {
     CandidateDao candidateDao
 
     void saveAll(List<CandidateEntity> candidateEntities) {
-        candidateDao.save(candidateEntities)
+        candidateDao.saveOrUpdateAll(candidateEntities)
     }
 }
