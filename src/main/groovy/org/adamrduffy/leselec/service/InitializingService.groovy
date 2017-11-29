@@ -50,7 +50,7 @@ class InitializingService implements InitializingBean {
                 constituencyEntities.add(new ConstituencyEntity(code: constituency.code, name: constituency.name, byElection: constituency.byelection, candidates: candidateEntities))
             }
             constituencyService.saveAll(constituencyEntities)
-            districtDao.save(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
+            districtDao.saveOrUpdate(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
         }
         LOGGER.info("writing to database complete")
     }

@@ -1,7 +1,6 @@
 package org.adamrduffy.leselec.controller
 
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
-import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.service.ConstituencyService
 import org.adamrduffy.parly.Constituency
 import org.slf4j.Logger

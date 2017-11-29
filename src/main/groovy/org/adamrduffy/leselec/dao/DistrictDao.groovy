@@ -1,12 +1,11 @@
 package org.adamrduffy.leselec.dao
 
-import org.springframework.data.repository.CrudRepository
+interface DistrictDao {
+    void saveOrUpdate(DistrictEntity districtEntity)
 
-import javax.enterprise.context.ApplicationScoped
-import javax.inject.Named
+    DistrictEntity find(String districtName)
 
-@ApplicationScoped
-@Named
-interface DistrictDao extends CrudRepository<DistrictEntity, String> {
-    // nothing to be done here
+    DistrictEntity findForConstituency(String constituencyCode)
+
+    List<DistrictEntity> findAll()
 }
