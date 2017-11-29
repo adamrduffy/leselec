@@ -4,6 +4,7 @@ import groovy.transform.Canonical
 
 import javax.persistence.*
 
+@Cacheable
 @Canonical
 @Entity
 @Table(name = "LE_CONSTITUENCY")

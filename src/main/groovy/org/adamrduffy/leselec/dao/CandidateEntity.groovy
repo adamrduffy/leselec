@@ -2,11 +2,13 @@ package org.adamrduffy.leselec.dao
 
 import groovy.transform.Canonical
 
+import javax.persistence.Cacheable
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
 import javax.persistence.Table
 
+@Cacheable
 @Canonical
 @Entity
 @Table(name = "LE_CANDIDATE")
