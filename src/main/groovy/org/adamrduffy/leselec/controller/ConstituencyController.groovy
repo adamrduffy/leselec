@@ -1,7 +1,9 @@
 package org.adamrduffy.leselec.controller
 
 import org.adamrduffy.leselec.controller.model.SelectedConstituency
+import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.service.ConstituencyService
+import org.adamrduffy.parly.Constituency
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -25,4 +27,7 @@ class ConstituencyController implements Serializable {
         selectedConstituency.constituency = constituencyService.find(constituencyCode)
     }
 
+    Constituency getConstituencyOfCandidate(String candidateCode) {
+        return constituencyService.findForCandidate(candidateCode)
+    }
 }

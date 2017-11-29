@@ -28,12 +28,6 @@ class DistrictController implements Serializable {
         return districts.find { district -> district.constituencies.find { constituency -> constituencyCode.equalsIgnoreCase(constituency.code) } }
     }
 
-    Constituency getConstituency(String candidateCode) {
-        List<District> districts = districtsService.read()
-        List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>
-        return constituencies.find { constituency -> constituency.candidates.find { candidate -> candidateCode.equalsIgnoreCase(candidate.code) } }
-    }
-
     void viewDistrict(String districtName) {
         LOGGER.info(districtName)
         District district = districtsService.read().find { district -> districtName.equalsIgnoreCase(district.name) }

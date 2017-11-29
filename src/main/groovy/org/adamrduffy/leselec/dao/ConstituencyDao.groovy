@@ -6,4 +6,6 @@ interface ConstituencyDao {
     void saveOrUpdate(ConstituencyEntity constituencyEntity)
 
     ConstituencyEntity find(String constituencyCode)
+
+    ConstituencyEntity findForCandidate(String candidateCode)
 }

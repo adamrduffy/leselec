@@ -62,7 +62,7 @@
                          responsive="true"
                          value="#{selectedParty.party.candidates}"
                          var="candidate">
-                <ui:param name="constituency" value="#{districtController.getConstituency(candidate.code)}"/>
+                <ui:param name="constituency" value="#{constituencyController.getConstituencyOfCandidate(candidate.code)}"/>
                 <ui:param name="district" value="#{districtController.getDistrict(constituency.code)}"/>
 
                 <b:dataTableColumn value="#{candidate.name}"/>

@@ -26,4 +26,11 @@ class ConstituencyService {
         def candidateTransform = { candidate -> new Candidate(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated ) }
         return new Constituency(code: c.code, name: c.name, candidates: c.candidates.collect(candidateTransform) ,byelection: c.byElection)
     }
+
+    @Transactional
+    Constituency findForCandidate(String candidateCode) {
+        def c = constituencyDao.findForCandidate(candidateCode)
+        def candidateTransform = { candidate -> new Candidate(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated ) }
+        return new Constituency(code: c.code, name: c.name, candidates: c.candidates.collect(candidateTransform) ,byelection: c.byElection)
+    }
 }

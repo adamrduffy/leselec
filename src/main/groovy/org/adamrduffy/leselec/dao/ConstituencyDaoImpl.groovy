@@ -31,4 +31,11 @@ class ConstituencyDaoImpl implements ConstituencyDao {
         query.setParameter("code", constituencyCode)
         return (ConstituencyEntity) query.uniqueResult()
     }
+
+    @Transactional
+    ConstituencyEntity findForCandidate(String candidateCode) {
+        def query = sessionFactory.getCurrentSession().createQuery("select c from ConstituencyEntity c join c.candidates candidates where candidates.code = :code")
+        query.setParameter("code", candidateCode)
+        return (ConstituencyEntity) query.uniqueResult()
+    }
 }
