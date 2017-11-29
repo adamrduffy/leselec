@@ -3,10 +3,12 @@ package org.adamrduffy.leselec.service
 import com.giaybac.traprange.PDFTableExtractor
 import org.adamrduffy.leselec.dao.CandidateEntity
 import org.adamrduffy.leselec.dao.ConstituencyEntity
-import org.adamrduffy.parly.Candidate
-import org.adamrduffy.parly.Constituency
+import org.adamrduffy.leselec.dao.DistrictDao
+import org.adamrduffy.leselec.dao.DistrictEntity
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
+import org.adamrduffy.parly.Candidate
+import org.adamrduffy.parly.Constituency
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 import org.slf4j.Logger
@@ -29,6 +31,8 @@ class DistrictsService {
     CandidateService candidateService
     @Inject
     ConstituencyService constituencyService
+    @Inject
+    DistrictDao districtDao
 
     List<District> read() {
         return districts
@@ -42,6 +46,9 @@ class DistrictsService {
         this.districts = JsonFile.<List<District>> load(districtsJson.inputStream)
         parseAllResultFiles(districts, "24", "26", "27")
         LOGGER.info("# districts " + districts.size())
+        districts.each { district ->
+            districtDao.save(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount))
+        }
     }
 
     private void parseAllResultFiles(List<District> districts, String... byElectionConstituencyCodes) {
