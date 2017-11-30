@@ -20,11 +20,13 @@ class ElectionEntity {
     Date date
     @Column(name = "LEE_NATIONAL_QUOTA")
     Float nationalQuota
+    @Column(name = "LEE_SEATS")
+    Integer seats
     @OneToMany
     @JoinColumn(name = "LEE_DATE")
     List<PartyEntity> parties
 
     static def TRANSFORM_TO_ENTITY = { s ->
-        new ElectionEntity(date: s.date, nationalQuota: s.nationalQuota, parties: s.parties.collect(PartyEntity.TRANSFORM_TO_ENTITY))
+        new ElectionEntity(date: s.date, nationalQuota: s.nationalQuota, seats: s.seats, parties: s.parties.collect(PartyEntity.TRANSFORM_TO_ENTITY))
     }
 }
