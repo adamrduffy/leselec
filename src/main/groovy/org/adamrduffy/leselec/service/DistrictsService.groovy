@@ -24,14 +24,8 @@ class DistrictsService {
 
     @Transactional
     List<District> findAll() {
-        List<District> districts = new LinkedList<>()
         List<DistrictEntity> districtEntities = districtDao.findAll()
-        def candidateTransform = { c -> new Candidate(code: c.code, name: c.name, party: c.party, votes: c.votes, share: c.share, elected: c.elected, seated: c.seated) }
-        def constituencyTransform = { c -> new Constituency(code: c.code, name: c.name, candidates: c.candidates.collect(candidateTransform), byelection: c.byElection) }
-        for (d in districtEntities) {
-            districts.add(new District(name: d.name, url: d.url, resultCount: d.resultCount, constituencies: d.constituencies.collect(constituencyTransform)))
-        }
-        return districts
+        return districtEntities.collect(DistrictEntity.TRANSFORM_FROM_ENTITY)
     }
 
     @Transactional

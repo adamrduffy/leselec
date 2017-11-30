@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<ui:composition template="layout.xhtml">
+    <ui:define name="title">
+        <title>Admin</title>
+    </ui:define>
+    <ui:define name="content">
+        <h:form>
+            <ui:repeat value="#{adminController.districts}" var="district">
+                <b:panel title="#{district.name}" collapsible="true" collapsed="true">
+                    <ui:repeat value="#{district.constituencies}" var="constituency">
+                        <b:panel title="#{constituency.name} (#{constituency.code})" collapsible="true" collapsed="true">
+                            <b:dataTable paginated="false"
+                                         responsive="true"
+                                         value="#{constituency.candidates}"
+                                         var="candidate">
+                                <b:dataTableColumn value="#{candidate.code}"/>
+                                <b:dataTableColumn value="#{candidate.name}"/>
+                                <b:dataTableColumn value="#{candidate.party}"/>
+                                <b:dataTableColumn value="#{candidate.votes}"/>
+                                <b:dataTableColumn value="#{candidate.share}"/>
+                                <b:dataTableColumn value="#{candidate.elected}"/>
+                                <b:dataTableColumn value="#{candidate.seated}"/>
+                                <b:dataTableColumn>
+                                    <b:commandButton id="editCandidate"
+                                                     actionListener="#{adminController.selectCandidate(candidate)}"
+                                                     icon="edit"
+                                                     value="edit"
+                                    />
+                                </b:dataTableColumn>
+                            </b:dataTable>
+                        </b:panel>
+                    </ui:repeat>
+                </b:panel>
+            </ui:repeat>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

@@ -42,4 +42,13 @@
         <to>/district.html</to>
     </outbound-rule>
 
+    <rule>
+        <from>/admin.html</from>
+        <to>/admin.jsf</to>
+    </rule>
+    <outbound-rule>
+        <from>/admin.jsf</from>
+        <to>/admin.html</to>
+    </outbound-rule>
+
 </urlrewrite>

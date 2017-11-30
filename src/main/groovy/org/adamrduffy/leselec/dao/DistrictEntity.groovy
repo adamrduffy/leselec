@@ -1,6 +1,7 @@
 package org.adamrduffy.leselec.dao
 
 import groovy.transform.Canonical
+import org.adamrduffy.leselec.domain.District
 
 import javax.persistence.*
 
@@ -22,5 +23,9 @@ class DistrictEntity {
 
     static def TRANSFORM_TO_ENTITY = { district ->
         new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: district.constituencies.collect(ConstituencyEntity.TRANSFORM_TO_ENTITY))
+    }
+
+    static def TRANSFORM_FROM_ENTITY = { d ->
+        new District(name: d.name, url: d.url, resultCount: d.resultCount, constituencies: d.constituencies.collect(ConstituencyEntity.TRANSFORM_FROM_ENTITY))
     }
 }
