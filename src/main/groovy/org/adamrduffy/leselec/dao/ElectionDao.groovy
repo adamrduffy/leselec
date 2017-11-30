@@ -14,7 +14,13 @@ class ElectionDao {
     private SessionFactory sessionFactory
 
     @Transactional
-    void saveOrUpdate(ElectionEntity seatEntity) {
-        sessionFactory.getCurrentSession().saveOrUpdate(seatEntity)
+    void saveOrUpdate(ElectionEntity electionEntity) {
+        sessionFactory.getCurrentSession().saveOrUpdate(electionEntity)
+    }
+
+    @Transactional
+    ElectionEntity find() {
+        def query = sessionFactory.getCurrentSession().createQuery("from ElectionEntity")
+        return (ElectionEntity) query.uniqueResult()
     }
 }

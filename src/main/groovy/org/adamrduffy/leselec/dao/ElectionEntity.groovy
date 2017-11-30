@@ -1,6 +1,7 @@
 package org.adamrduffy.leselec.dao
 
 import groovy.transform.Canonical
+import org.adamrduffy.parly.Election
 
 import javax.persistence.Cacheable
 import javax.persistence.Column
@@ -28,5 +29,9 @@ class ElectionEntity {
 
     static def TRANSFORM_TO_ENTITY = { s ->
         new ElectionEntity(date: s.date, nationalQuota: s.nationalQuota, seats: s.seats, parties: s.parties.collect(PartyEntity.TRANSFORM_TO_ENTITY))
+    }
+
+    static def TRANSFORM_FROM_ENTITY = { e ->
+        new Election(date: e.date, nationalQuota: e.nationalQuota, seats: e.seats, parties: e.parties.collect(PartyEntity.TRANSFORM_FROM_ENTITY))
     }
 }

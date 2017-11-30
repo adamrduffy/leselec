@@ -1,46 +1,42 @@
 package org.adamrduffy.leselec.service
 
+import org.adamrduffy.leselec.dao.CandidateDao
+import org.adamrduffy.leselec.dao.CandidateEntity
 import org.adamrduffy.leselec.dao.ElectionDao
 import org.adamrduffy.leselec.dao.ElectionEntity
-import org.adamrduffy.leselec.domain.District
-import org.adamrduffy.parly.Constituency
+import org.adamrduffy.leselec.dao.PartyDao
+import org.adamrduffy.leselec.dao.PartyEntity
 import org.adamrduffy.parly.Election
-import org.adamrduffy.parly.MixedMemberProportionalRepresentation
-import org.adamrduffy.parly.Party
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 import javax.enterprise.context.ApplicationScoped
 import javax.inject.Inject
 import javax.inject.Named
+import javax.transaction.Transactional
 
 @ApplicationScoped
 @Named
 class ElectionService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ElectionService.class)
-
-    static final TOTAL_SEATS = 120
-
     @Inject
-    DistrictsService districtsService
+    CandidateDao candidateDao
     @Inject
-    ElectionDao seatDao
+    ElectionDao electionDao
+    @Inject
+    PartyDao partyDao
 
-    void saveOrUpdate(Election seats) {
-        seatDao.saveOrUpdate(ElectionEntity.TRANSFORM_TO_ENTITY(seats))
+    @Transactional
+    void saveOrUpdate(Election election) {
+        electionDao.saveOrUpdate(ElectionEntity.TRANSFORM_TO_ENTITY(election))
+        election.parties.each { party ->
+            partyDao.saveOrUpdate(PartyEntity.TRANSFORM_TO_ENTITY(party))
+            party.candidates.each { candidate ->
+                candidateDao.saveOrUpdate(CandidateEntity.TRANSFORM_TO_ENTITY(candidate))
+            }
+        }
     }
 
+    @Transactional
     Election read() {
-        LOGGER.debug("reading districts")
-        List<District> districts = districtsService.findAll()
-        List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>
-        LOGGER.debug("determining elected candidates")
-        MixedMemberProportionalRepresentation.determineElectedCandidate(constituencies)
-        LOGGER.debug("determining constituencies with by-elections")
-        int byElections = MixedMemberProportionalRepresentation.countByElections(constituencies)
-        LOGGER.debug("determining parties")
-        def parties = MixedMemberProportionalRepresentation.determineParties(constituencies)
-        LOGGER.debug("calculating seat allocation")
-        return MixedMemberProportionalRepresentation.calculateSeats(parties.values() as List<Party>, byElections, TOTAL_SEATS)
+        def electionEntity = electionDao.find()
+        return ElectionEntity.TRANSFORM_FROM_ENTITY(electionEntity)
     }
 }

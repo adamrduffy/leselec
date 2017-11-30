@@ -6,6 +6,7 @@ import org.adamrduffy.leselec.json.JsonFile
 import org.adamrduffy.parly.Candidate
 import org.adamrduffy.parly.Constituency
 import org.adamrduffy.parly.Election
+import org.adamrduffy.parly.MixedMemberProportionalRepresentation
 import org.adamrduffy.parly.Party
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
@@ -65,7 +66,11 @@ class InitializingService implements InitializingBean {
         parties.values().each { party ->
             partyService.saveOrUpdate(party)
         }
-        electionService.saveOrUpdate(new Election(date: Date.from(ELECTION_DAY.toInstant(ZoneOffset.UTC)), seats: SEATS, parties: parties.values() as List<Party>))
+        LOGGER.info("running election")
+        def election = runElection()
+        election.date = Date.from(ELECTION_DAY.toInstant(ZoneOffset.UTC))
+        election.seats = SEATS
+        electionService.saveOrUpdate(election)
         LOGGER.info("writing to database complete")
     }
 
@@ -106,5 +111,19 @@ class InitializingService implements InitializingBean {
             }
         }
         return new Constituency(code: code, name: name, candidates: candidates, byelection: byElectionConstituencyCodes.contains(code))
+    }
+
+    Election runElection() {
+        LOGGER.debug("reading districts")
+        List<District> districts = districtsService.findAll()
+        List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>
+        LOGGER.debug("determining elected candidates")
+        MixedMemberProportionalRepresentation.determineElectedCandidate(constituencies)
+        LOGGER.debug("determining constituencies with by-elections")
+        int byElections = MixedMemberProportionalRepresentation.countByElections(constituencies)
+        LOGGER.debug("determining parties")
+        def parties = MixedMemberProportionalRepresentation.determineParties(constituencies)
+        LOGGER.debug("calculating seat allocation")
+        return MixedMemberProportionalRepresentation.calculateSeats(parties.values() as List<Party>, byElections, SEATS)
     }
 }

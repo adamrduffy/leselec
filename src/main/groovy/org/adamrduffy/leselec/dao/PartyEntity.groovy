@@ -1,6 +1,7 @@
 package org.adamrduffy.leselec.dao
 
 import groovy.transform.Canonical
+import org.adamrduffy.parly.Party
 
 import javax.persistence.Cacheable
 import javax.persistence.Column
@@ -18,8 +19,6 @@ class PartyEntity {
     @Id
     @Column(name = "LEP_CODE")
     String code
-    @Column(name = "LEP_VOTES")
-    Integer votes
     @Column(name = "LEP_VOTE_SHARE")
     Float voteShare
     @Column(name = "LEP_PARTY_QUOTA")
@@ -31,6 +30,14 @@ class PartyEntity {
     List<CandidateEntity> candidates
 
     static def TRANSFORM_TO_ENTITY = { p ->
-        new PartyEntity(code: p.code, votes: p.votes, voteShare: p.voteShare, partyQuota: p.partyQuota, remainderPrSeats: p.remainderPrSeats, candidates: p.candidates.collect(CandidateEntity.TRANSFORM_TO_ENTITY))
+        new PartyEntity(code: p.code, voteShare: p.voteShare, partyQuota: p.partyQuota,
+                remainderPrSeats: p.remainderPrSeats,
+                candidates: p.candidates.collect(CandidateEntity.TRANSFORM_TO_ENTITY))
+    }
+
+    static def TRANSFORM_FROM_ENTITY = { p ->
+        new Party(code: p.code, voteShare: p.voteShare, partyQuota: p.partyQuota,
+                remainderPrSeats: p.remainderPrSeats,
+                candidates: p.candidates.collect(CandidateEntity.TRANSFORM_FROM_ENTITY))
     }
 }
