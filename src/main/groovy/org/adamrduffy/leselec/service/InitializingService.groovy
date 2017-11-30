@@ -16,10 +16,17 @@ import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Service
 
 import javax.inject.Inject
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 @Service
 class InitializingService implements InitializingBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(InitializingService.class)
+
+    // TODO should be configurable
+    private static final int SEATS = 120
+    // TODO should be configurable
+    private LocalDateTime ELECTION_DAY = LocalDateTime.of(2017, 6, 3, 0, 0, 0)
 
     @Inject
     CandidateService candidateService
@@ -58,8 +65,7 @@ class InitializingService implements InitializingBean {
         parties.values().each { party ->
             partyService.saveOrUpdate(party)
         }
-        // TODO date and seats needs to be configurable/settable
-        electionService.saveOrUpdate(new Election(date: new Date(), seats: 120, parties: parties.values() as List<Party>))
+        electionService.saveOrUpdate(new Election(date: Date.from(ELECTION_DAY.toInstant(ZoneOffset.UTC)), seats: SEATS, parties: parties.values() as List<Party>))
         LOGGER.info("writing to database complete")
     }
 
