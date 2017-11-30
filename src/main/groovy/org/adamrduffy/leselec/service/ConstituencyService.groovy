@@ -2,7 +2,6 @@ package org.adamrduffy.leselec.service
 
 import org.adamrduffy.leselec.dao.ConstituencyDao
 import org.adamrduffy.leselec.dao.ConstituencyEntity
-import org.adamrduffy.parly.Candidate
 import org.adamrduffy.parly.Constituency
 
 import javax.enterprise.context.ApplicationScoped
@@ -16,21 +15,17 @@ class ConstituencyService {
     @Inject
     ConstituencyDao constituencyDao
 
-    void saveAll(List<ConstituencyEntity> constituencyEntities) {
-        constituencyDao.saveOrUpdateAll(constituencyEntities)
+    void saveAll(List<Constituency> constituencies) {
+        constituencyDao.saveOrUpdateAll(constituencies.collect(ConstituencyEntity.TRANSFORM_TO_ENTITY))
     }
 
     @Transactional
     Constituency find(String constituencyCode) {
-        def c = constituencyDao.find(constituencyCode)
-        def candidateTransform = { candidate -> new Candidate(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated ) }
-        return new Constituency(code: c.code, name: c.name, candidates: c.candidates.collect(candidateTransform) ,byelection: c.byElection)
+        return ConstituencyEntity.TRANSFORM_FROM_ENTITY(constituencyDao.find(constituencyCode))
     }
 
     @Transactional
     Constituency findForCandidate(String candidateCode) {
-        def c = constituencyDao.findForCandidate(candidateCode)
-        def candidateTransform = { candidate -> new Candidate(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated ) }
-        return new Constituency(code: c.code, name: c.name, candidates: c.candidates.collect(candidateTransform) ,byelection: c.byElection)
+        return ConstituencyEntity.TRANSFORM_FROM_ENTITY(constituencyDao.findForCandidate(candidateCode))
     }
 }

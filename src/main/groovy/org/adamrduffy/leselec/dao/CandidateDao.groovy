@@ -1,7 +1,27 @@
 package org.adamrduffy.leselec.dao
 
-interface CandidateDao {
-    void saveOrUpdateAll(List<CandidateEntity> candidateEntities);
+import org.hibernate.SessionFactory
+import org.springframework.beans.factory.annotation.Autowired
 
-    void saveOrUpdate(CandidateEntity candidateEntity);
+import javax.enterprise.context.ApplicationScoped
+import javax.inject.Named
+import javax.transaction.Transactional
+
+@ApplicationScoped
+@Named
+class CandidateDao {
+    @Autowired
+    private SessionFactory sessionFactory
+
+    @Transactional
+    void saveOrUpdateAll(List<CandidateEntity> candidateEntities) {
+        for (CandidateEntity candidateEntity : candidateEntities) {
+            saveOrUpdate(candidateEntity)
+        }
+    }
+
+    @Transactional
+    void saveOrUpdate(CandidateEntity candidateEntity) {
+        sessionFactory.getCurrentSession().saveOrUpdate(candidateEntity)
+    }
 }

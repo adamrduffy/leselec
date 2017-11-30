@@ -46,18 +46,16 @@ class InitializingService implements InitializingBean {
         districts.each { district ->
             List<ConstituencyEntity> constituencyEntities = new LinkedList<>()
             district.constituencies.each { constituency ->
-                List<CandidateEntity> candidateEntities = new LinkedList<>()
                 constituency.candidates.each { candidate ->
                     if (!parties.containsKey(candidate.party)) {
                         parties.put(candidate.party, new Party(code: candidate.party))
                     }
                     parties.get(candidate.party).candidates.add(candidate)
-                    candidateEntities.add(new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated))
                 }
-                candidateService.saveAll(candidateEntities)
-                constituencyEntities.add(new ConstituencyEntity(code: constituency.code, name: constituency.name, byElection: constituency.byelection, candidates: candidateEntities))
+                candidateService.saveAll(constituency.candidates)
+                constituencyEntities.add(new ConstituencyEntity(code: constituency.code, name: constituency.name, byElection: constituency.byelection, candidates: constituency.candidates.collect(CandidateEntity.TRANSFORM_TO_ENTITY)))
             }
-            constituencyService.saveAll(constituencyEntities)
+            constituencyService.saveAll(district.constituencies)
             districtDao.saveOrUpdate(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
         }
         parties.values().each { party ->
