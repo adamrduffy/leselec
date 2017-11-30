@@ -4,7 +4,7 @@ import org.adamrduffy.leselec.controller.model.SelectedConstituency
 import org.adamrduffy.leselec.controller.model.SelectedParty
 import org.adamrduffy.parly.Party
 import org.adamrduffy.leselec.service.DistrictsService
-import org.adamrduffy.leselec.service.SeatsService
+import org.adamrduffy.leselec.service.ElectionService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -21,7 +21,7 @@ class PartyController implements Serializable {
     @Inject
     DistrictsService districtsService
     @Inject
-    SeatsService seatsService
+    ElectionService seatsService
 
     @Inject
     SelectedConstituency selectedConstituency

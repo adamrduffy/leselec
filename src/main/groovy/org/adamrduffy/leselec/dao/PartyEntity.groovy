@@ -29,4 +29,8 @@ class PartyEntity {
     @OneToMany
     @JoinColumn(name = "LEP_CODE")
     List<CandidateEntity> candidates
+
+    static def TRANSFORM_TO_ENTITY = { p ->
+        new PartyEntity(code: p.code, votes: p.votes, voteShare: p.voteShare, partyQuota: p.partyQuota, remainderPrSeats: p.remainderPrSeats, candidates: p.candidates.collect(CandidateEntity.TRANSFORM_TO_ENTITY))
+    }
 }

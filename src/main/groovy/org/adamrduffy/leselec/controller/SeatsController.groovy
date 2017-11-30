@@ -3,7 +3,7 @@ package org.adamrduffy.leselec.controller
 import org.adamrduffy.parly.Party
 import org.adamrduffy.leselec.domain.PartyColour
 import org.adamrduffy.leselec.service.PartyColoursService
-import org.adamrduffy.leselec.service.SeatsService
+import org.adamrduffy.leselec.service.ElectionService
 import org.adamrduffy.parly.diagram.ParliamentArchDiagram
 import org.adamrduffy.parly.diagram.Parliamentarian
 import org.apache.commons.lang3.StringUtils
@@ -18,7 +18,7 @@ class SeatsController implements Serializable {
     @Inject
     PartyColoursService partyColoursService
     @Inject
-    SeatsService seatsService
+    ElectionService seatsService
 
     String getParliamentArchDiagram() {
         List<Party> parties = seatsService.read().parties

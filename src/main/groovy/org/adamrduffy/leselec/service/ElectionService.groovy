@@ -1,10 +1,12 @@
 package org.adamrduffy.leselec.service
 
+import org.adamrduffy.leselec.dao.ElectionDao
+import org.adamrduffy.leselec.dao.ElectionEntity
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.parly.Constituency
+import org.adamrduffy.parly.Election
 import org.adamrduffy.parly.MixedMemberProportionalRepresentation
 import org.adamrduffy.parly.Party
-import org.adamrduffy.parly.Seats
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -14,15 +16,21 @@ import javax.inject.Named
 
 @ApplicationScoped
 @Named
-class SeatsService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SeatsService.class)
+class ElectionService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ElectionService.class)
 
     static final TOTAL_SEATS = 120
 
     @Inject
     DistrictsService districtsService
+    @Inject
+    ElectionDao seatDao
 
-    Seats read() {
+    void saveOrUpdate(Election seats) {
+        seatDao.saveOrUpdate(ElectionEntity.TRANSFORM_TO_ENTITY(seats))
+    }
+
+    Election read() {
         LOGGER.debug("reading districts")
         List<District> districts = districtsService.findAll()
         List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>

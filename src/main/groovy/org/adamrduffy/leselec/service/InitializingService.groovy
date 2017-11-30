@@ -5,6 +5,7 @@ import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 import org.adamrduffy.parly.Candidate
 import org.adamrduffy.parly.Constituency
+import org.adamrduffy.parly.Election
 import org.adamrduffy.parly.Party
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
@@ -28,6 +29,8 @@ class InitializingService implements InitializingBean {
     DistrictsService districtsService
     @Inject
     PartyService partyService
+    @Inject
+    ElectionService electionService
 
     @Override
     void afterPropertiesSet() throws Exception {
@@ -55,6 +58,8 @@ class InitializingService implements InitializingBean {
         parties.values().each { party ->
             partyService.saveOrUpdate(party)
         }
+        // TODO date and seats needs to be configurable/settable
+        electionService.saveOrUpdate(new Election(date: new Date(), seats: 120, parties: parties.values() as List<Party>))
         LOGGER.info("writing to database complete")
     }
 
