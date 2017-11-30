@@ -28,4 +28,8 @@ class CandidateEntity {
     Boolean elected
     @Column(name = "LEC_SEATED")
     Boolean seated
+
+    static def TRANSFORM_TO_ENTITY = { c ->
+        new CandidateEntity(code: c.code, name: c.name, party: c.party, votes: c.votes, share: c.share, elected: c.elected, seated: c.seated)
+    }
 }

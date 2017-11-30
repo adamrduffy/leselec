@@ -9,6 +9,7 @@ import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 import org.adamrduffy.parly.Candidate
 import org.adamrduffy.parly.Constituency
+import org.adamrduffy.parly.Party
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.math.NumberUtils
 import org.slf4j.Logger
@@ -29,6 +30,8 @@ class InitializingService implements InitializingBean {
     ConstituencyService constituencyService
     @Inject
     DistrictDao districtDao
+    @Inject
+    PartyService partyService
 
     @Override
     void afterPropertiesSet() throws Exception {
@@ -39,11 +42,16 @@ class InitializingService implements InitializingBean {
         parseAllResultFiles(districts, "24", "26", "27")
         LOGGER.info("# districts " + districts.size())
         LOGGER.info("writing to database starting...")
+        Map<String, Party> parties = new HashMap<>()
         districts.each { district ->
             List<ConstituencyEntity> constituencyEntities = new LinkedList<>()
             district.constituencies.each { constituency ->
                 List<CandidateEntity> candidateEntities = new LinkedList<>()
                 constituency.candidates.each { candidate ->
+                    if (!parties.containsKey(candidate.party)) {
+                        parties.put(candidate.party, new Party(code: candidate.party))
+                    }
+                    parties.get(candidate.party).candidates.add(candidate)
                     candidateEntities.add(new CandidateEntity(code: candidate.code, name: candidate.name, party: candidate.party, votes: candidate.votes, share: candidate.share, elected: candidate.elected, seated: candidate.seated))
                 }
                 candidateService.saveAll(candidateEntities)
@@ -51,6 +59,9 @@ class InitializingService implements InitializingBean {
             }
             constituencyService.saveAll(constituencyEntities)
             districtDao.saveOrUpdate(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
+        }
+        parties.values().each { party ->
+            partyService.saveOrUpdate(party)
         }
         LOGGER.info("writing to database complete")
     }
