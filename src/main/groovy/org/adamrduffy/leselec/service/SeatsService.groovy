@@ -23,16 +23,16 @@ class SeatsService {
     DistrictsService districtsService
 
     Seats read() {
-        LOGGER.info("reading districts")
+        LOGGER.debug("reading districts")
         List<District> districts = districtsService.findAll()
         List<Constituency> constituencies = districts.constituencies.flatten() as List<Constituency>
-        LOGGER.info("determining elected candidates")
+        LOGGER.debug("determining elected candidates")
         MixedMemberProportionalRepresentation.determineElectedCandidate(constituencies)
-        LOGGER.info("determining constituencies with by-elections")
+        LOGGER.debug("determining constituencies with by-elections")
         int byElections = MixedMemberProportionalRepresentation.countByElections(constituencies)
-        LOGGER.info("determining parties")
+        LOGGER.debug("determining parties")
         def parties = MixedMemberProportionalRepresentation.determineParties(constituencies)
-        LOGGER.info("calculating seat allocation")
+        LOGGER.debug("calculating seat allocation")
         return MixedMemberProportionalRepresentation.calculateSeats(parties.values() as List<Party>, byElections, TOTAL_SEATS)
     }
 }
