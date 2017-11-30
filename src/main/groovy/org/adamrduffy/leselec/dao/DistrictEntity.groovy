@@ -19,4 +19,8 @@ class DistrictEntity {
     @OneToMany
     @JoinColumn(name = "LED_NAME")
     List<ConstituencyEntity> constituencies
+
+    static def TRANSFORM_TO_ENTITY = { district ->
+        new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: district.constituencies.collect(ConstituencyEntity.TRANSFORM_TO_ENTITY))
+    }
 }

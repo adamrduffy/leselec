@@ -18,6 +18,11 @@ class DistrictsService {
     DistrictDao districtDao
 
     @Transactional
+    void saveOrUpdate(District district) {
+        districtDao.saveOrUpdate(DistrictEntity.TRANSFORM_TO_ENTITY(district))
+    }
+
+    @Transactional
     List<District> findAll() {
         List<District> districts = new LinkedList<>()
         List<DistrictEntity> districtEntities = districtDao.findAll()

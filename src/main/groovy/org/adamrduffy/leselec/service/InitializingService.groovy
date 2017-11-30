@@ -1,10 +1,6 @@
 package org.adamrduffy.leselec.service
 
 import com.giaybac.traprange.PDFTableExtractor
-import org.adamrduffy.leselec.dao.CandidateEntity
-import org.adamrduffy.leselec.dao.ConstituencyEntity
-import org.adamrduffy.leselec.dao.DistrictDao
-import org.adamrduffy.leselec.dao.DistrictEntity
 import org.adamrduffy.leselec.domain.District
 import org.adamrduffy.leselec.json.JsonFile
 import org.adamrduffy.parly.Candidate
@@ -29,7 +25,7 @@ class InitializingService implements InitializingBean {
     @Inject
     ConstituencyService constituencyService
     @Inject
-    DistrictDao districtDao
+    DistrictsService districtsService
     @Inject
     PartyService partyService
 
@@ -44,7 +40,6 @@ class InitializingService implements InitializingBean {
         LOGGER.info("writing to database starting...")
         Map<String, Party> parties = new HashMap<>()
         districts.each { district ->
-            List<ConstituencyEntity> constituencyEntities = new LinkedList<>()
             district.constituencies.each { constituency ->
                 constituency.candidates.each { candidate ->
                     if (!parties.containsKey(candidate.party)) {
@@ -53,10 +48,9 @@ class InitializingService implements InitializingBean {
                     parties.get(candidate.party).candidates.add(candidate)
                 }
                 candidateService.saveAll(constituency.candidates)
-                constituencyEntities.add(new ConstituencyEntity(code: constituency.code, name: constituency.name, byElection: constituency.byelection, candidates: constituency.candidates.collect(CandidateEntity.TRANSFORM_TO_ENTITY)))
             }
             constituencyService.saveAll(district.constituencies)
-            districtDao.saveOrUpdate(new DistrictEntity(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: constituencyEntities))
+            districtsService.saveOrUpdate(new District(name: district.name, url: district.url, resultCount: district.resultCount, constituencies: district.constituencies))
         }
         parties.values().each { party ->
             partyService.saveOrUpdate(party)
