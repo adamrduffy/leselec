@@ -48,7 +48,10 @@
                          value="#{selectedDistrictAndConstituency.constituency.candidates}"
                          var="candidate">
                 <b:dataTableColumn>
-                    <b:inputText value="#{candidate.code}" mask="numeric"/>
+                    <b:inputText required="true"
+                                 mask="numeric"
+                                 value="#{candidate.code}"
+                    />
                     <f:facet name="header">
                         <h:outputText value="Code"/>
                     </f:facet>
@@ -73,7 +76,9 @@
                 </b:dataTableColumn>
                 <b:dataTableColumn value="#{candidate.share}"/>
                 <b:dataTableColumn>
-                    <b:selectBooleanCheckbox value="#{candidate.elected}"/>
+                    <b:selectBooleanCheckbox value="#{candidate.elected}">
+                        <f:ajax event="click" listener="#{adminController.checkOnlyOneCandidateElected(constituency)}" render="growl"/>
+                    </b:selectBooleanCheckbox>
                     <f:facet name="header">
                         <h:outputText value="Elected"/>
                     </f:facet>
