@@ -10,35 +10,82 @@
         <title>Admin</title>
     </ui:define>
     <ui:define name="content">
-        <h:form>
-            <ui:repeat value="#{adminController.districts}" var="district">
-                <b:panel title="#{district.name}" collapsible="true" collapsed="true">
-                    <ui:repeat value="#{district.constituencies}" var="constituency">
-                        <b:panel title="#{constituency.name} (#{constituency.code})" collapsible="true" collapsed="true">
-                            <b:dataTable paginated="false"
-                                         responsive="true"
-                                         value="#{constituency.candidates}"
-                                         var="candidate">
-                                <b:dataTableColumn value="#{candidate.code}"/>
-                                <b:dataTableColumn value="#{candidate.name}"/>
-                                <b:dataTableColumn value="#{candidate.party}"/>
-                                <b:dataTableColumn value="#{candidate.votes}"/>
-                                <b:dataTableColumn value="#{candidate.share}"/>
-                                <b:dataTableColumn value="#{candidate.elected}"/>
-                                <b:dataTableColumn value="#{candidate.seated}"/>
-                                <b:dataTableColumn>
-                                    <b:commandButton id="editCandidate"
-                                                     actionListener="#{adminController.selectCandidate(candidate)}"
-                                                     icon="edit"
-                                                     value="edit"
-                                    />
-                                </b:dataTableColumn>
-                            </b:dataTable>
-                        </b:panel>
-                    </ui:repeat>
-                </b:panel>
-            </ui:repeat>
-        </h:form>
+        <b:form id="adminForm">
+            <b:dropButton value="Districts">
+                <ui:repeat value="#{adminController.districts}" var="district">
+                    <b:navCommandLink actionListener="#{adminController.selectDistrict(district)}"
+                                      ajax="true"
+                                      update="adminForm"
+                                      value="#{district.name}"/>
+                </ui:repeat>
+            </b:dropButton>
+            <b:dropButton value="Constituencies" rendered="#{selectedDistrictAndConstituency.district != null}">
+                <ui:repeat value="#{adminController.constituencies}" var="constituency">
+                    <b:navCommandLink actionListener="#{adminController.selectConstituency(constituency)}"
+                                      ajax="true"
+                                      update="adminForm"
+                                      value="#{constituency.code} #{constituency.name}"/>
+                </ui:repeat>
+            </b:dropButton>
+
+            <h1>
+                <h:outputText value="#{selectedDistrictAndConstituency.district.name}" rendered="#{selectedDistrictAndConstituency.district != null}"/>
+                <br/>
+                <h:outputText value="#{selectedDistrictAndConstituency.constituency.code} #{selectedDistrictAndConstituency.constituency.name}" rendered="#{selectedDistrictAndConstituency.constituency != null}"/>
+            </h1>
+
+            <b:dataTable id="candidateTable"
+                         columnVisibility="true"
+                         copy="true"
+                         csv="true"
+                         excel="true"
+                         fixedHeader="true"
+                         paginated="false"
+                         pdf="true"
+                         print="true"
+                         rendered="#{selectedDistrictAndConstituency.district != null and selectedDistrictAndConstituency.constituency != null}"
+                         responsive="true"
+                         value="#{selectedDistrictAndConstituency.constituency.candidates}"
+                         var="candidate">
+                <b:dataTableColumn>
+                    <b:inputText value="#{candidate.code}" mask="numeric"/>
+                    <f:facet name="header">
+                        <h:outputText value="Code"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <b:inputText value="#{candidate.name}"/>
+                    <f:facet name="header">
+                        <h:outputText value="Name"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <b:inputText value="#{candidate.party}"/>
+                    <f:facet name="header">
+                        <h:outputText value="Party"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <b:inputText value="#{candidate.votes}" mask="numeric"/>
+                    <f:facet name="header">
+                        <h:outputText value="Votes"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn value="#{candidate.share}"/>
+                <b:dataTableColumn>
+                    <b:selectBooleanCheckbox value="#{candidate.elected}"/>
+                    <f:facet name="header">
+                        <h:outputText value="Elected"/>
+                    </f:facet>
+                </b:dataTableColumn>
+                <b:dataTableColumn>
+                    <b:selectBooleanCheckbox value="#{candidate.seated}"/>
+                    <f:facet name="header">
+                        <h:outputText value="Seated"/>
+                    </f:facet>
+                </b:dataTableColumn>
+            </b:dataTable>
+        </b:form>
     </ui:define>
 </ui:composition>
 </html>
