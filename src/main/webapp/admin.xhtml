@@ -77,14 +77,14 @@
                 <b:dataTableColumn value="#{candidate.share}"/>
                 <b:dataTableColumn>
                     <b:selectBooleanCheckbox value="#{candidate.elected}">
-                        <f:ajax event="click" listener="#{adminController.checkOnlyOneCandidateElected(constituency)}" render="growl"/>
+                        <f:ajax event="click" listener="#{adminController.checkOnlyOneCandidateElected(constituency)}" render="growl seatedCheckbox"/>
                     </b:selectBooleanCheckbox>
                     <f:facet name="header">
                         <h:outputText value="Elected"/>
                     </f:facet>
                 </b:dataTableColumn>
                 <b:dataTableColumn>
-                    <b:selectBooleanCheckbox value="#{candidate.seated}"/>
+                    <b:selectBooleanCheckbox id="seatedCheckbox" value="#{candidate.seated}" disabled="#{not candidate.elected}"/>
                     <f:facet name="header">
                         <h:outputText value="Seated"/>
                     </f:facet>
